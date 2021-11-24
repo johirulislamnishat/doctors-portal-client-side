@@ -23,9 +23,10 @@ const AppointmentBanner = () => {
                 <Grid container spacing={2}>
 
                     <Grid item xs={12} md={6} sx={{ display: "flex", justifyContent: "center" }}>
-                        <img style={{ width: 400, marginTop: -110 }} src={image} alt="" />
+                        <img style={{ width: 300, marginTop: -110 }} src={image} alt="" />
                     </Grid>
-                    <Grid item xs={12} md={6} sx={{ display: "flex", justifyContent: "flex-start", alignItems: 'center', textAlign: "left", }}>
+
+                    <Grid item xs={12} md={6} sx={{ display: "flex", justifyContent: "flex-start", alignItems: 'center', textAlign: "left", paddingY: 6 }}>
                         <Box>
                             <Typography sx={{ color: "#6ACECE" }} variant="h5">
                                 APPOINTMENT
@@ -40,6 +41,7 @@ const AppointmentBanner = () => {
                             <Button sx={{ background: "rgba(25,211,174)", mt: 4 }} variant="contained">Contained</Button>
                         </Box>
                     </Grid>
+
                 </Grid>
             </Container>
         </Box>

@@ -69,6 +69,12 @@ const NavBar = () => {
             <Link to='/appointment'>
               <Button variant="contained">Appointment</Button>
             </Link>
+            <Link to='/login'>
+              <Button variant="contained">Login</Button>
+            </Link>
+            <Link to='/dashboard'>
+              <Button variant="contained">Dashboard</Button>
+            </Link>
 
             <div>
               <IconButton
