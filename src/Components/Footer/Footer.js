@@ -104,13 +104,13 @@ const Footer = () => {
 					<p className="text-center mb-2 mt-3">
 						<small>You need to Login with this email and password</small>
 					</p>
-					<h5 className="text-secondary mb-3">Email: doctors.portal@gmail.com</h5>
-					<h6 className="text-secondary mb-3">Password: AdminDoctor@123</h6>
+					<h5 className="text-secondary mb-3">Email: admin@admin.com</h5>
+					<h6 className="text-secondary mb-3">Password: admin@123456</h6>
 					<p className="text-center mb-2 mt-3 px-5">
 						<small>Or you can create a new account or signIn with a account which You did not use or provide as an patient appointment email. </small>
 					</p>
 					<div className="form-group text-center mt-2">
-						<Link to="/login	">
+						<Link to="/dashboard">
 							<button className="btn btn-success mr-3 text-white">Open Admin Panel</button>
 						</Link>
 					</div>

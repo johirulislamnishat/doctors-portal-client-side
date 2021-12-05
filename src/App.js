@@ -1,19 +1,15 @@
 import './App.css';
 import { useEffect } from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from './Components/Home/Home/Home';
 import Appointment from './Components/Appointment/Appointment/Appointment';
-import Login from './Components/Login/Login';
+import Login from './Authentication/Login/Login';
+import Registration from './Authentication/Registration/Registration';
 import Sneackbar from './Components/Sneackbar';
 import NotFound from './Components/SinglePages/NotFound';
 import Contact from './Components/SinglePages/ContactUs';
 import Dashboard from './Components/DashboardArea/Dashboard';
-
-
+import AuthProvider from './Authentication/Context/AuthProvider';
 
 function App() {
 
@@ -23,43 +19,55 @@ function App() {
 
   return (
     <>
-      <Router>
-        <Switch>
 
-          <Route exact path="/">
-            <Home />
-          </Route>
+      <AuthProvider>
+        <Router>
+          <Switch>
 
-          <Route path="/home">
-            <Home />
-          </Route>
+            <Route exact path="/">
+              <Home />
+            </Route>
 
-          <Route path="/contact">
-            <Contact />
-          </Route>
+            <Route path="/home">
+              <Home />
+            </Route>
 
-          <Route path="/login">
-            <Login />
-          </Route>
+            <Route path="/contact">
+              <Contact />
+            </Route>
 
-          <Route path="/snackbar">
-            <Sneackbar />
-          </Route>
+            <Route path="/login">
+              <Login />
+            </Route>
 
-          <Route path="/appointment">
-            <Appointment />
-          </Route>
+            <Route path="/snackbar">
+              <Sneackbar />
+            </Route>
 
-          <Route path="/dashboard">
-            <Dashboard />
-          </Route>
+            <Route path="/appointment">
+              <Appointment />
+            </Route>
 
-          <Route exact path="/*">
-            <NotFound />
-          </Route>
+            <Route path="/dashboard">
+              <Dashboard />
+            </Route>
 
-        </Switch>
-      </Router>
+            <Route path="/login">
+              <Login />
+            </Route>
+
+            <Route path="/registration">
+              <Registration />
+            </Route>
+
+            <Route exact path="/*">
+              <NotFound />
+            </Route>
+
+          </Switch>
+        </Router>
+      </AuthProvider>
+
     </>
   );
 }

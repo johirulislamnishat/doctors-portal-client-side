@@ -2,11 +2,15 @@ import React, { useState } from 'react';
 import Grid from '@mui/material/Grid';
 import CardActions from '@mui/material/CardActions';
 import Button from '@mui/material/Button';
-import BookingModal from '../BookingModal/BookingModal';
+import '../../Doctors/Doctors.css';
 
-const Booking = ({ appointment, date }) => {
+const SeeAppointments = ({ appointment }) => {
+
+    const [cancelAppointments, setCancelAppointments] = useState([]);
+    // console.log(appointment);
 
     const { img, category, name, education, designation, department, hospital } = appointment;
+
 
     const [descriptionCollapse, setDescriptionCollapse] = useState(false);
 
@@ -18,10 +22,25 @@ const Booking = ({ appointment, date }) => {
         setDescriptionCollapse(false);
     };
 
-    const [open, setOpen] = useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
-
+    //Cancel Appointment
+    const handleCancelAppointment = id => {
+        const proceed = window.confirm('Are you sure you want to delete?');
+        if (proceed) {
+            const url = `http://localhost:5000/cancelAppointments/${id}`;
+            fetch(url, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    // console.log(data);
+                    if (data.deletedCount > 0) {
+                        alert('Delete Success');
+                        const remainingOrder = cancelAppointments.filter(order => order._id !== id);
+                        setCancelAppointments(remainingOrder);
+                    }
+                })
+        }
+    }
 
     return (
         <>
@@ -32,7 +51,7 @@ const Booking = ({ appointment, date }) => {
                         <p className="doctor-category">{category}</p>
                         <h4 className="doctor-name">{name}</h4>
                         {/* <span className="doctor-education">
-                            {descriptionCollapse ? education : education.substr(0, 80)}
+                             {descriptionCollapse ? education : education.substr(0, 80)} 
                         </span>
                         {education.length > 80 ? descriptionCollapse ? (
                             <span onClick={showLess} className="collapse-btn">
@@ -45,36 +64,23 @@ const Booking = ({ appointment, date }) => {
                         ) : (
                             <span> </span>
                         )} */}
-                        <h6 className="mt-4">{designation}</h6>
+                        {/* <h6 className="mt-4">{designation}</h6>
                         <h6 className="department">{department}</h6>
-                        <h6 className="hospital">{hospital}</h6>
+                        <h6 className="hospital">{hospital}</h6>  */}
                         {/* <div className="text-center">
 						<button className="btn btn-primary button-style mt-3" onClick={() => modalController(id)}>
 							<FontAwesomeIcon icon={faCalendarCheck} className="mr-3" /> Book Appointment
 						</button>
-					</div> */}
+					</div>  */}
                     </div>
 
                     <CardActions sx={{ display: 'flex', justifyContent: 'center', }}>
-                        <Button onClick={handleOpen} sx={{ background: "rgba(25,211,174)", marginBottom: 4 }} variant="contained" uppercase='true'>Book appointment</Button>
+                        <Button onClick={() => handleCancelAppointment(appointment._id)} sx={{ background: "rgba(25,211,174)", marginBottom: 4 }} variant="contained" uppercase='true'>Delete</Button>
                     </CardActions>
                 </div>
             </Grid>
-
-            <div>
-
-                <BookingModal
-                    name={name}
-                    // time={time}
-                    date={date}
-                    open={open}
-                    handleClose={handleClose}
-                    appointment={appointment}
-                ></BookingModal>
-            </div>
-
         </>
     );
 };
 
-export default Booking;
+export default SeeAppointments;

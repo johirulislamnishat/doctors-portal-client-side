@@ -1,5 +1,4 @@
 import React from 'react';
-import NavBar from '../../Shared/NavBar';
 import AppointmentBanner from '../AppointmentBanner/AppointmentBanner';
 import Services from '../Services/Services';
 import Header from '../../Header/Header';
@@ -10,6 +9,7 @@ import Features from '../../Features/Features';
 import Testimonials from '../../Testimonials/Testimonials';
 import FeaturedService from '../../FeaturedService/FeaturedService';
 import Blogs from '../../Blogs/Blogs';
+import Doctors from '../../Doctors/Doctors';
 
 const Home = () => {
     return (
@@ -17,16 +17,14 @@ const Home = () => {
 
             <div className='heder-content'>
 
-
-                {/* <NavBar /> */}
-                {/* <Banner /> */}
                 <Header />
                 <Banner />
                 <Infos />
                 <Services />
                 <AppointmentBanner />
+                <Doctors />
                 <Features />
-                {/* <Testimonials /> */}
+                <Testimonials />
                 <FeaturedService />
                 <Blogs />
                 <Footer />

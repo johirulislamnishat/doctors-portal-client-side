@@ -5,44 +5,37 @@ import chair from '../../../images/chair.png';
 import bg from '../../../images/bg.png';
 import { Container, Typography } from '@mui/material';
 import Calendar from '../Calendar/Calendar';
+import Banner from '../../Banner/Banner';
+
+import { Link } from 'react-router-dom';
+import BannerImg from '../../../images/chair.png';
+import '../../Banner/Banner.css';
 
 const AppointmentHeader = ({ date, setDate }) => {
-    const bannerBg = {
-        background: `url(${bg})`,
-        backgroundRepeat: 'no-repeat',
-    };
-
-    const verticalAlign = {
-        display: 'flex',
-        alignItems: 'center',
-        height: 450
-    }
 
     return (
-        <Box style={bannerBg} sx={{ flexGrow: 1 }}>
-            <Container>
-                <Grid container spacing={2}>
+        <>
+            <div className="heder-content">
+                <div className="banner-section">
+                    <div className="container">
+                        <div className="row align-items-center" style={{ height: '100vh' }}>
+                            <div className="col-md-4">
+                                <Typography sx={{ color: "#203047", fontWidth: 600, my: 2.5 }} variant="h3">
+                                    Appointment
+                                </Typography>
 
-                    <Grid style={verticalAlign} item xs={12} md={6} sx={{ display: "flex", justifyContent: "center" }}>
-                        <Box>
-
-                            <Typography sx={{ color: "#203047", fontWidth: 600, my: 2.5 }} variant="h3">
-                                Appointment
-                            </Typography>
-
-                            <Calendar date={date} setDate={setDate} />
-
-
-                        </Box>
-                    </Grid>
-                    <Grid item xs={12} md={6} sx={{ display: "flex", justifyContent: "flex-start", alignItems: 'center', textAlign: "left", }}>
-                        <img style={{ width: 347, verticalAlign }} src={chair} alt="" />
+                                <Calendar date={date} setDate={setDate} />
+                            </div>
+                            <div className="col-md-6 d-none d-md-block offset-1">
+                                <img className="img" src={BannerImg} alt="banner-img" width="120%" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
-                    </Grid>
-                </Grid>
-            </Container>
-        </Box>
+        </>
     );
 };
 

@@ -14,7 +14,7 @@ const FeaturedService = () => {
 							Consultancy via video call and expand the reach of your service. We have a strong network of
 							Bangladeshi registered doctors that you can trust.
 						</p>
-						<Link to="/dashboard">
+						<Link to="/registration">
 							<button className="btn btn-primary button-style mb-5">Sign Up</button>
 						</Link>
 					</div>

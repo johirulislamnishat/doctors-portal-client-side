@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../../App.css';
+import useAuth from '../../Authentication/Hooks/useAuth';
 import logo from '../../images/logo.png';
 
 const Header = () => {
-	const [ isSticky, setSticky ] = useState(false);
-	const [ isCollapsed, setCollapsed ] = useState(null);
+	const { user, logOut } = useAuth();
+	const [isSticky, setSticky] = useState(false);
+	const [isCollapsed, setCollapsed] = useState(null);
 	const [navStyle, setNavStyle] = useState('text-gray');
 
 	useEffect(() => {
@@ -31,7 +33,7 @@ const Header = () => {
 		>
 			<div className="container">
 				<Link className="navbar-brand" to="/" style={{ color: '#15D1C8' }}>
-					<img src={logo} alt="logo"/><span className="logo-name"> Online Doctor's Portal </span>
+					<img src={logo} alt="logo" /><span className="logo-name"> Online Doctor's Portal </span>
 				</Link>
 				<button
 					onClick={() => setCollapsed(!isCollapsed ? 'show' : null)}
@@ -63,15 +65,25 @@ const Header = () => {
 							</Link>
 						</li>
 						<li className="nav-item">
-							<Link className={`nav-link ${navStyle}`}  to="/reviews">
+							<Link className={`nav-link ${navStyle}`} to="/reviews">
 								Reviews
 							</Link>
 						</li>
 						<li className="nav-item">
-							<Link className={`nav-link ${navStyle}`}  to="/contact">
+							<Link className={`nav-link ${navStyle}`} to="/contact">
 								Contact Us
 							</Link>
 						</li>
+
+						{user?.email ? <li className="nav-item">
+							<Link onClick={logOut} className={`nav-link ${navStyle}`} to="/">
+								Sign Out
+							</Link>
+						</li> : <li className="nav-item">
+							<Link className={`nav-link ${navStyle}`} to="/login">
+								Sign In
+							</Link>
+						</li>}
 					</ul>
 				</div>
 			</div>

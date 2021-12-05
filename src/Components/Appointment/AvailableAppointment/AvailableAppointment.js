@@ -1,50 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import { Container } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import Booking from '../Booking/Booking';
 
-const appointments = [
-    {
-        id: 1,
-        name: "Teeth Orthodontics",
-        time: "8:00 AM - 9:00 AM",
-        space: 5
-    },
-    {
-        id: 2,
-        name: "Cosmetic Dentistry",
-        time: "10:05 am – 11:30 am",
-        space: 10
-    },
-    {
-        id: 3,
-        name: "Teeth Cleaning",
-        time: "5:00 pm – 6:30 pm",
-        space: 10
-    },
-    {
-        id: 4,
-        name: "Cavity Protection",
-        time: "7:00 am – 8:30 am",
-        space: 5
-    },
-    {
-        id: 5,
-        name: "Teeth Orthodontics",
-        time: "8:00 AM - 9:00 AM",
-        space: 5
-    },
-    {
-        id: 6,
-        name: "Teeth Orthodontics",
-        time: "8:00 AM - 9:00 AM",
-        space: 5
-    }
-]
-
 const AvailableAppointment = ({ date }) => {
+
+    const [appointments, setAppointments] = useState([]);
+
+    useEffect(() => {
+        const url = ('http://localhost:5000/doctors')
+        fetch(url)
+            .then(res => res.json())
+            // .then(data => console.log(data))
+            .then(data => setAppointments(data))
+    }, [])
+
     return (
         <Container>
             <Box sx={{ flexGrow: 1 }}>

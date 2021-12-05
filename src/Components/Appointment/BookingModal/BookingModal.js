@@ -5,44 +5,26 @@ import Modal from '@mui/material/Modal';
 import { Button, MenuItem, TextField } from '@mui/material';
 import Sneackbar from '../../Sneackbar';
 
-const currencies = [
-    {
-        value: 'USD',
-        label: '$',
-    },
-    {
-        value: 'EUR',
-        label: '€',
-    },
-    {
-        value: 'BTC',
-        label: '฿',
-    },
-    {
-        value: 'JPY',
-        label: '¥',
-    },
-];
-
-
 
 const BookingModal = ({ date, open, handleClose, appointment }) => {
 
-    const { name, time } = appointment;
+    const { img, category, name, hospital } = appointment;
     const [openSneackBar, setOpenSneackBar] = useState(false);
     const [bookingInfo, setBookingInfo] = useState();
 
-
-
     const handleOnSubmit = e => {
+
         // collect data
         const bookAppoint = {
             ...bookingInfo,
             name,
-            time,
+            img,
+            category,
+            hospital,
             date: date.toLocaleDateString(),
 
         }
+
         //send data to server
         fetch('http://localhost:5000/appointments', {
             method: 'POST',
@@ -53,15 +35,13 @@ const BookingModal = ({ date, open, handleClose, appointment }) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                setBookingInfo(data)
             })
 
         // alert('dshfksdjh')
         setOpenSneackBar(true);
         e.preventDefault();
         handleClose();
-
-
     };
 
 
@@ -71,7 +51,7 @@ const BookingModal = ({ date, open, handleClose, appointment }) => {
         top: '50%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
-        width: 400,
+        width: '50%',
         bgcolor: 'background.paper',
         border: '2px solid #000',
         boxShadow: 24,
@@ -79,11 +59,11 @@ const BookingModal = ({ date, open, handleClose, appointment }) => {
     };
 
     //currency 
-    const [currency, setCurrency] = useState('EUR');
+    // const [currency, setCurrency] = useState('EUR');
 
-    const handleInputChange = (event) => {
-        setCurrency(event.target.value);
-    };
+    // const handleInputChange = (event) => {
+    //     setCurrency(event.target.value);
+    // };
 
 
     //POST INFO
@@ -111,23 +91,11 @@ const BookingModal = ({ date, open, handleClose, appointment }) => {
                         Book Your Appointment
                     </Typography>
 
+                    <h4 className="text-primary text-center">{appointment.category}</h4>
+                    <h5 className="text-center style-color">{appointment.name}</h5>
 
-                    <form onSubmit={handleOnSubmit} style={{ height: '300px', overflowY: 'scroll' }} >
+                    <form onSubmit={handleOnSubmit} style={{ height: '350px', overflowY: 'scroll', padding: 10 }} >
 
-                        <TextField
-                            disabled
-                            id="outlined-disabled"
-                            sx={{ width: '100%', mt: 3 }}
-                            label="Department"
-                            defaultValue={name}
-                        />
-                        <TextField
-                            disabled
-                            id="outlined-disabled"
-                            sx={{ width: '100%', my: 2 }}
-                            label="Time"
-                            defaultValue={time}
-                        />
                         <TextField
                             disabled
                             defaultValue={date.toDateString()}
@@ -135,6 +103,39 @@ const BookingModal = ({ date, open, handleClose, appointment }) => {
                             sx={{ width: '100%', mb: 2 }}
                             label="Date"
                         />
+
+                        <TextField
+                            disabled
+                            id="outlined-disabled"
+                            sx={{ width: '100%', mb: 2 }}
+                            label="Booking Image"
+                            defaultValue={img}
+                        />
+
+                        <TextField
+                            disabled
+                            id="outlined-disabled"
+                            sx={{ width: '100%', mb: 2 }}
+                            label="Doctor Name"
+                            defaultValue={name}
+                        />
+
+                        <TextField
+                            disabled
+                            id="outlined-disabled"
+                            sx={{ width: '100%', mb: 2 }}
+                            label="Department"
+                            defaultValue={category}
+                        />
+
+                        <TextField
+                            disabled
+                            id="outlined-disabled"
+                            sx={{ width: '100%', mb: 2 }}
+                            label="Hospital"
+                            defaultValue={hospital}
+                        />
+
                         <TextField
                             onBlur={handleOnBlur}
                             name='patient_name'
@@ -151,36 +152,18 @@ const BookingModal = ({ date, open, handleClose, appointment }) => {
                             sx={{ width: '100%', mb: 2 }}
                             label="Number"
                         />
+
                         <TextField
                             onBlur={handleOnBlur}
                             name='patient_email'
                             id="outlined-disabled"
                             placeholder='Enter Your Email'
-                            type='email'
                             sx={{ width: '100%', mb: 2 }}
                             label="Email"
                         />
 
-                        <TextField
-                            onBlur={handleOnBlur}
-                            name='patient_currency'
-                            sx={{ width: '100%', mb: 2 }}
-                            id="outlined-select-currency"
-                            select
-                            label="Select"
-                            value={currency}
-                            onChange={handleInputChange}
 
-                        >
-                            {currencies.map((option) => (
-                                <MenuItem key={option.value} value={option.value}>
-                                    {option.label}
-                                </MenuItem>
-                            ))}
-                        </TextField>
-
-
-                        <Button type='submit' sx={{ background: "rgba(25,211,174)" }} variant="contained" uppercase='true'>Book appointment</Button>
+                        <Button type='submit' sx={{ background: "rgba(25,211,174)" }} variant="contained" uppercase='true'>Confirm</Button>
 
 
                     </form>

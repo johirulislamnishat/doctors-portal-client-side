@@ -7,11 +7,9 @@ import Hidden from '@material-ui/core/Hidden';
 import IconButton from '@material-ui/core/IconButton';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
 import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { Avatar } from '@mui/material';
 import logo from '../../images/logo.png';
@@ -23,6 +21,7 @@ import { Link, useRouteMatch } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendar, faFileAlt, faGripHorizontal, faSignOutAlt, faUserPlus, faUsers } from '@fortawesome/free-solid-svg-icons';
 import DashboardContent from './DashboardContent';
+import useAuth from '../../Authentication/Hooks/useAuth';
 
 const drawerWidth = 240;
 const useStyles = makeStyles(theme => ({
@@ -105,7 +104,6 @@ const SmallAvatar = styled(Avatar)(({ theme }) => ({
 // Item
 function Item(props) {
     const { sx, ...other } = props;
-    let { url } = useRouteMatch();
     return (
         <Box
             sx={{
@@ -121,6 +119,7 @@ function Item(props) {
 function Dashboard() {
     // const dummyCategories = ['Hokusai', 'Hiroshige', 'Utamaro', 'Kuniyoshi', 'Yoshitoshi']
 
+    const { user, logOut } = useAuth();
     let { url } = useRouteMatch();
 
     const classes = useStyles();
@@ -202,7 +201,7 @@ function Dashboard() {
 
             <div>
                 <ListItem button style={{ fontSize: 16, marginTop: 10 }}>
-                    <Link to="/">
+                    <Link onClick={logOut} to="/">
                         <FontAwesomeIcon style={{ width: 17, marginRight: 5 }} icon={faSignOutAlt} /> <span>Logout</span>
                     </Link>
                 </ListItem>
@@ -234,7 +233,7 @@ function Dashboard() {
                                 anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
                                 variant="dot"
                             >
-                                <Avatar alt="logo" src="/static/images/avatar/1.jpg" />
+                                <Avatar alt="logo" src={user?.photoURL} />
                             </StyledBadge>
 
                         </Stack>
@@ -256,7 +255,7 @@ function Dashboard() {
                                         anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
                                         variant="dot"
                                     >
-                                        <Avatar alt="logo" src="/static/images/avatar/1.jpg" />
+                                        <Avatar alt="logo" src={user?.photoURL} />
                                     </StyledBadge>
 
                                 </Stack>
