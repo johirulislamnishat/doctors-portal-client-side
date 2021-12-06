@@ -64,11 +64,11 @@ const Header = () => {
 								Dashboard
 							</Link>
 						</li>
-						<li className="nav-item">
+						{/* <li className="nav-item">
 							<Link className={`nav-link ${navStyle}`} to="/reviews">
 								Reviews
 							</Link>
-						</li>
+						</li> */}
 						<li className="nav-item">
 							<Link className={`nav-link ${navStyle}`} to="/contact">
 								Contact Us
