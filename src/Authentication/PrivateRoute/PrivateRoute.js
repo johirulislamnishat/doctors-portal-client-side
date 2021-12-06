@@ -10,10 +10,10 @@ const PrivateRoute = ({ children, ...rest }) => {
     //reload handling
     if (isLoading) {
         return (
-        <Box sx={{ display: 'flex' }}>
-      <CircularProgress />
-    </Box>
-    )
+            <Box sx={{ display: 'flex', alignItems: 'center', justifyItems: 'center', justifyContent: 'center', width: '100%', margin: '0 auto' }}>
+                <CircularProgress />
+            </Box>
+        )
     }
 
     return (

@@ -9,13 +9,17 @@ import DashboardUser from './UserArea/DashboardUser';
 import MyAppointment from './UserArea/MyAppointment';
 import MyPrescription from './UserArea/MyPrescriptions';
 import Review from './UserArea/Review';
+import AddAdmin from './AdminArea/AddAdmin';
+
 
 const DashboardContent = () => {
     let { path } = useRouteMatch();
 
+
     return (
         <div>
             <Switch>
+
                 <Route path={`${path}/admin-dashboard`} >
                     <DashboardAdmin />
                 </Route>
@@ -35,6 +39,11 @@ const DashboardContent = () => {
                 <Route path={`${path}/add-doctors`}>
                     <AddDoctor />
                 </Route>
+
+                <Route path={`${path}/add-new-admin`}>
+                    <AddAdmin />
+                </Route>
+
 
                 {/* user menu  */}
                 <Route path={`${path}/dashboard`}>

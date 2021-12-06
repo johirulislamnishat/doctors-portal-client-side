@@ -128,48 +128,62 @@ function Dashboard() {
     function handleDrawerToggle() {
         setMobileOpen(!mobileOpen)
     }
+
+    const { admin } = useAuth();
+
     const drawer = (
         <div>
             <div>
 
                 {/* admin menu */}
-                <List style={{ fontSize: 16, marginTop: 10 }}>
-                    <ListItem button>
-                        <Link to={`${url}/admin-dashboard`}>
-                            <FontAwesomeIcon style={{ width: 17, marginRight: 5 }} icon={faGripHorizontal} /> <span>Dashboard</span>
-                        </Link>
-                    </ListItem>
 
-                    <ListItem button>
-                        <Link to={`${url}/appointment`} >
-                            <FontAwesomeIcon style={{ width: 17, marginRight: 5 }} icon={faCalendar} /> <span>Appointment</span>
-                        </Link>
-                    </ListItem>
+                {
+                    admin && <>
 
-                    <ListItem button>
-                        <Link to={`${url}/patients`}>
-                            <FontAwesomeIcon style={{ width: 17, marginRight: 5 }} icon={faUsers} /> <span>Patients</span>
-                        </Link>
-                    </ListItem>
+                        <List style={{ fontSize: 16, marginTop: 10 }}>
+                            <ListItem button>
+                                <Link to={`${url}/admin-dashboard`}>
+                                    <FontAwesomeIcon style={{ width: 17, marginRight: 5 }} icon={faGripHorizontal} /> <span>Dashboard</span>
+                                </Link>
+                            </ListItem>
 
-                    <ListItem button>
-                        <Link to={`${url}/prescriptions`}>
-                            <FontAwesomeIcon style={{ width: 17, marginRight: 5 }} icon={faFileAlt} /> <span>Prescriptions</span>
-                        </Link>
-                    </ListItem>
+                            <ListItem button>
+                                <Link to={`${url}/appointment`} >
+                                    <FontAwesomeIcon style={{ width: 17, marginRight: 5 }} icon={faCalendar} /> <span>Appointment</span>
+                                </Link>
+                            </ListItem>
 
-                    <ListItem button>
-                        <Link to={`${url}/add-doctors`}>
-                            <FontAwesomeIcon style={{ width: 17, marginRight: 5 }} icon={faUserPlus} /> <span>Add Doctor</span>
-                        </Link>
-                    </ListItem>
-                    {/* {dummyCategories.map((text, index) => (
+                            <ListItem button>
+                                <Link to={`${url}/patients`}>
+                                    <FontAwesomeIcon style={{ width: 17, marginRight: 5 }} icon={faUsers} /> <span>Patients</span>
+                                </Link>
+                            </ListItem>
+
+                            <ListItem button>
+                                <Link to={`${url}/prescriptions`}>
+                                    <FontAwesomeIcon style={{ width: 17, marginRight: 5 }} icon={faFileAlt} /> <span>Prescriptions</span>
+                                </Link>
+                            </ListItem>
+
+                            <ListItem button>
+                                <Link to={`${url}/add-doctors`}>
+                                    <FontAwesomeIcon style={{ width: 17, marginRight: 5 }} icon={faUserPlus} /> <span>Add Doctor</span>
+                                </Link>
+                            </ListItem>
+
+                            <ListItem button>
+                                <Link to={`${url}/add-new-admin`}>
+                                    <FontAwesomeIcon style={{ width: 17, marginRight: 5 }} icon={faUserPlus} /> <span>Add New Admin</span>
+                                </Link>
+                            </ListItem>
+                            {/* {dummyCategories.map((text, index) => (
         <ListItem button key={text}>
             <ListItemText primary={text} />
         </ListItem>
     ))} */}
-                </List>
-
+                        </List>
+                    </>
+                }
                 {/* user menu */}
                 <List style={{ fontSize: 16, marginTop: 10 }}>
                     <ListItem button>

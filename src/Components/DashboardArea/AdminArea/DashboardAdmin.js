@@ -4,7 +4,7 @@ import Grid from '@mui/material/Grid';
 
 
 const DashboardAdmin = () => {
-    const [users, setUsers] = useState([]);
+    // const [users, setUsers] = useState([]);
     // console.log(users);
     const [appointment, setAppointment] = useState([]);
 
@@ -14,11 +14,11 @@ const DashboardAdmin = () => {
             .then(data => setAppointment(data.length))
     }, [])
 
-    useEffect(() => {
-        fetch('http://localhost:5000/users')
-            .then(res => res.json())
-            .then(data => setUsers(data.length))
-    }, [])
+    // useEffect(() => {
+    //     fetch('http://localhost:5000/appointments')
+    //         .then(res => res.json())
+    //         .then(data => setUsers(data.length))
+    // }, [])
     return (
         <>
 
@@ -32,7 +32,7 @@ const DashboardAdmin = () => {
 
                                 <Grid item xs={6}>
                                     <div>
-                                        {users}
+                                        {appointment}
                                     </div>
                                 </Grid>
                                 <Grid item xs={6}>

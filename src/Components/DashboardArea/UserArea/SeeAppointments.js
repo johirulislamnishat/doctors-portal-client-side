@@ -12,15 +12,6 @@ const SeeAppointments = ({ appointment }) => {
     const { img, category, name, education, designation, department, hospital } = appointment;
 
 
-    const [descriptionCollapse, setDescriptionCollapse] = useState(false);
-
-    const showMore = () => {
-        setDescriptionCollapse(true);
-    };
-
-    const showLess = () => {
-        setDescriptionCollapse(false);
-    };
 
     //Cancel Appointment
     const handleCancelAppointment = id => {

@@ -5,6 +5,7 @@ import Grid from '@mui/material/Grid';
 import { Button, Container, Typography } from '@mui/material';
 import image from '../../../images/doctor.png'
 import bg from '../../../images/appointment-bg.png'
+import { Link } from 'react-router-dom';
 
 
 const AppointmentBanner = () => {
@@ -38,7 +39,11 @@ const AppointmentBanner = () => {
                                 It is a long established fact that a reader will be distractedby the readable
                                 content of a page when looking at its
                             </Typography>
-                            <Button sx={{ background: "rgba(25,211,174)", mt: 4 }} variant="contained">Contained</Button>
+
+
+                            <Link to='/appointment'>
+                                <Button sx={{ background: "rgba(25,211,174)", mt: 4 }} variant="contained" uppercase='true'>Get appointment </Button>
+                            </Link>
                         </Box>
                     </Grid>
 

@@ -8,16 +8,6 @@ const Booking = ({ appointment, date }) => {
 
     const { img, category, name, education, designation, department, hospital } = appointment;
 
-    const [descriptionCollapse, setDescriptionCollapse] = useState(false);
-
-    const showMore = () => {
-        setDescriptionCollapse(true);
-    };
-
-    const showLess = () => {
-        setDescriptionCollapse(false);
-    };
-
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -31,20 +21,7 @@ const Booking = ({ appointment, date }) => {
                     <div className="doctor-description">
                         <p className="doctor-category">{category}</p>
                         <h4 className="doctor-name">{name}</h4>
-                        {/* <span className="doctor-education">
-                            {descriptionCollapse ? education : education.substr(0, 80)}
-                        </span>
-                        {education.length > 80 ? descriptionCollapse ? (
-                            <span onClick={showLess} className="collapse-btn">
-                                See Less
-                            </span>
-                        ) : (
-                            <span onClick={showMore} className="collapse-btn">
-                                See More
-                            </span>
-                        ) : (
-                            <span> </span>
-                        )} */}
+
                         <h6 className="mt-4">{designation}</h6>
                         <h6 className="department">{department}</h6>
                         <h6 className="hospital">{hospital}</h6>
@@ -62,7 +39,6 @@ const Booking = ({ appointment, date }) => {
             </Grid>
 
             <div>
-
                 <BookingModal
                     name={name}
                     // time={time}
@@ -72,6 +48,7 @@ const Booking = ({ appointment, date }) => {
                     appointment={appointment}
                 ></BookingModal>
             </div>
+
 
         </>
     );

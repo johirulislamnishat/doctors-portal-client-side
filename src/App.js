@@ -10,6 +10,7 @@ import NotFound from './Components/SinglePages/NotFound';
 import Contact from './Components/SinglePages/ContactUs';
 import Dashboard from './Components/DashboardArea/Dashboard';
 import AuthProvider from './Authentication/Context/AuthProvider';
+import PrivateRoute from './Authentication/PrivateRoute/PrivateRoute';
 
 function App() {
 
@@ -44,13 +45,13 @@ function App() {
               <Sneackbar />
             </Route>
 
-            <Route path="/appointment">
+            <PrivateRoute path="/appointment">
               <Appointment />
-            </Route>
+            </PrivateRoute>
 
-            <Route path="/dashboard">
+            <PrivateRoute path="/dashboard">
               <Dashboard />
-            </Route>
+            </PrivateRoute>
 
             <Route path="/login">
               <Login />

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import { Button, MenuItem, TextField } from '@mui/material';
+import { Button, TextField } from '@mui/material';
 import Sneackbar from '../../Sneackbar';
 
 
@@ -11,9 +11,10 @@ const BookingModal = ({ date, open, handleClose, appointment }) => {
     const { img, category, name, hospital } = appointment;
     const [openSneackBar, setOpenSneackBar] = useState(false);
     const [bookingInfo, setBookingInfo] = useState();
+    const email = sessionStorage.getItem('email');
 
     const handleOnSubmit = e => {
-
+        e.email = (email)
         // collect data
         const bookAppoint = {
             ...bookingInfo,
@@ -22,6 +23,7 @@ const BookingModal = ({ date, open, handleClose, appointment }) => {
             category,
             hospital,
             date: date.toLocaleDateString(),
+            email,
 
         }
 
@@ -35,10 +37,11 @@ const BookingModal = ({ date, open, handleClose, appointment }) => {
         })
             .then(res => res.json())
             .then(data => {
+                // console.log(data)
                 setBookingInfo(data)
             })
 
-        // alert('dshfksdjh')
+        alert('Success')
         setOpenSneackBar(true);
         e.preventDefault();
         handleClose();
@@ -144,22 +147,54 @@ const BookingModal = ({ date, open, handleClose, appointment }) => {
                             sx={{ width: '100%', mb: 2 }}
                             label="Full Name"
                         />
+
                         <TextField
                             onBlur={handleOnBlur}
                             name='patient_number'
                             id="outlined-disabled"
-                            placeholder='Enter Your Contact Number'
+                            type='text'
+                            placeholder='Enter Your Number'
                             sx={{ width: '100%', mb: 2 }}
-                            label="Number"
+                            label="Phone Number"
                         />
 
                         <TextField
                             onBlur={handleOnBlur}
                             name='patient_email'
                             id="outlined-disabled"
+                            type='email'
                             placeholder='Enter Your Email'
                             sx={{ width: '100%', mb: 2 }}
                             label="Email"
+                        />
+
+                        <TextField
+                            onBlur={handleOnBlur}
+                            name='patient_age'
+                            id="outlined-disabled"
+                            type='number'
+                            placeholder='Enter Your Age'
+                            sx={{ width: '100%', mb: 2 }}
+                            label="Age"
+                        />
+                        <TextField
+                            onBlur={handleOnBlur}
+                            name='patient_weight'
+                            id="outlined-disabled"
+                            type='number'
+                            placeholder='Enter Your Weight'
+                            sx={{ width: '100%', mb: 2 }}
+                            label="Weight"
+                        />
+
+                        <TextField
+                            onBlur={handleOnBlur}
+                            name='patient_address'
+                            id="outlined-disabled"
+                            type='text'
+                            placeholder='Enter Your Address'
+                            sx={{ width: '100%', mb: 2 }}
+                            label="Address"
                         />
 
 

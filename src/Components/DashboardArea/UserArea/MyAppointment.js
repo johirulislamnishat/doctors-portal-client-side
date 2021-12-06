@@ -4,13 +4,22 @@ import Grid from '@mui/material/Grid';
 import { Container } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import SeeAppointments from './SeeAppointments';
+// import useAuth from '../../../Authentication/Hooks/useAuth';
 
 const MyAppointment = () => {
 
+    // const { appointments } = useAuth();
+
+    // console.log(appointments)
+
     const [appointments, setAppointments] = useState([]);
+    const email = sessionStorage.getItem('email');
+
+    // console.log(email)
+
 
     useEffect(() => {
-        const url = ('http://localhost:5000/appointments')
+        const url = (`http://localhost:5000/appointments/${email}`)
         fetch(url)
             .then(res => res.json())
             // .then(data => console.log(data))
