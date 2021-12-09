@@ -19,9 +19,10 @@ import Stack from '@mui/material/Stack';
 import { Box } from '@mui/system';
 import { Link, useRouteMatch } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCalendar, faFileAlt, faGripHorizontal, faSignOutAlt, faUserPlus, faUsers } from '@fortawesome/free-solid-svg-icons';
+import { faCalendar, faFileAlt, faGripHorizontal, faMoneyCheckAlt, faSignOutAlt, faUserPlus, faUsers } from '@fortawesome/free-solid-svg-icons';
 import DashboardContent from './DashboardContent';
 import useAuth from '../../Authentication/Hooks/useAuth';
+import { faArtstation } from '@fortawesome/free-brands-svg-icons';
 
 const drawerWidth = 240;
 const useStyles = makeStyles(theme => ({
@@ -137,54 +138,61 @@ function Dashboard() {
 
                 {/* admin menu */}
 
-                {
-                    admin && <>
+                {/* {
+                    admin ? ( */}
 
-                        <List style={{ fontSize: 16, marginTop: 10 }}>
-                            <ListItem button>
-                                <Link to={`${url}/admin-dashboard`}>
-                                    <FontAwesomeIcon style={{ width: 17, marginRight: 5 }} icon={faGripHorizontal} /> <span>Dashboard</span>
-                                </Link>
-                            </ListItem>
+                <List style={{ fontSize: 16, marginTop: 10 }}>
+                    <ListItem button>
+                        <Link to={`${url}/admin-dashboard`}>
+                            <FontAwesomeIcon style={{ width: 17, marginRight: 5 }} icon={faGripHorizontal} /> <span>Dashboard</span>
+                        </Link>
+                    </ListItem>
 
-                            <ListItem button>
-                                <Link to={`${url}/appointment`} >
-                                    <FontAwesomeIcon style={{ width: 17, marginRight: 5 }} icon={faCalendar} /> <span>Appointment</span>
-                                </Link>
-                            </ListItem>
+                    <ListItem button>
+                        <Link to={`${url}/appointments`} >
+                            <FontAwesomeIcon style={{ width: 17, marginRight: 5 }} icon={faCalendar} /> <span>Appointment</span>
+                        </Link>
+                    </ListItem>
 
-                            <ListItem button>
-                                <Link to={`${url}/patients`}>
-                                    <FontAwesomeIcon style={{ width: 17, marginRight: 5 }} icon={faUsers} /> <span>Patients</span>
-                                </Link>
-                            </ListItem>
+                    <ListItem button>
+                        <Link to={`${url}/patients`}>
+                            <FontAwesomeIcon style={{ width: 17, marginRight: 5 }} icon={faUsers} /> <span>Patients</span>
+                        </Link>
+                    </ListItem>
 
-                            <ListItem button>
-                                <Link to={`${url}/prescriptions`}>
-                                    <FontAwesomeIcon style={{ width: 17, marginRight: 5 }} icon={faFileAlt} /> <span>Prescriptions</span>
-                                </Link>
-                            </ListItem>
+                    <ListItem button>
+                        <Link to={`${url}/prescriptions`}>
+                            <FontAwesomeIcon style={{ width: 17, marginRight: 5 }} icon={faFileAlt} /> <span>Prescriptions</span>
+                        </Link>
+                    </ListItem>
 
-                            <ListItem button>
-                                <Link to={`${url}/add-doctors`}>
-                                    <FontAwesomeIcon style={{ width: 17, marginRight: 5 }} icon={faUserPlus} /> <span>Add Doctor</span>
-                                </Link>
-                            </ListItem>
+                    <ListItem button>
+                        <Link to={`${url}/add-doctors`}>
+                            <FontAwesomeIcon style={{ width: 17, marginRight: 5 }} icon={faUserPlus} /> <span>Add Doctor</span>
+                        </Link>
+                    </ListItem>
 
-                            <ListItem button>
-                                <Link to={`${url}/add-new-admin`}>
-                                    <FontAwesomeIcon style={{ width: 17, marginRight: 5 }} icon={faUserPlus} /> <span>Add New Admin</span>
-                                </Link>
-                            </ListItem>
-                            {/* {dummyCategories.map((text, index) => (
+                    <ListItem button>
+                        <Link to={`${url}/manage-doctors`}>
+                            <FontAwesomeIcon style={{ width: 17, marginRight: 5 }} icon={faArtstation} /> <span>Manage Doctors</span>
+                        </Link>
+                    </ListItem>
+
+                    <ListItem button>
+                        <Link to={`${url}/add-new-admin`}>
+                            <FontAwesomeIcon style={{ width: 17, marginRight: 5 }} icon={faUserPlus} /> <span>Add New Admin</span>
+                        </Link>
+                    </ListItem>
+                    {/* {dummyCategories.map((text, index) => (
         <ListItem button key={text}>
             <ListItemText primary={text} />
         </ListItem>
     ))} */}
-                        </List>
-                    </>
-                }
-                {/* user menu */}
+                </List>
+                )
+
+
+
                 <List style={{ fontSize: 16, marginTop: 10 }}>
                     <ListItem button>
                         <Link to={`${url}/dashboard`}>
@@ -197,6 +205,12 @@ function Dashboard() {
                             <FontAwesomeIcon style={{ width: 17, marginRight: 5 }} icon={faCalendar} /> <span>My Appointment</span>
                         </Link>
                     </ListItem>
+
+                    {/* <ListItem button>
+                        <Link to={`${url}/payment`} >
+                            <FontAwesomeIcon style={{ width: 17, marginRight: 5 }} icon={faMoneyCheckAlt} /> <span>Payment</span>
+                        </Link>
+                    </ListItem> */}
 
                     <ListItem button>
                         <Link to={`${url}/my-prescriptions`}>
@@ -211,6 +225,8 @@ function Dashboard() {
                     </ListItem>
 
                 </List>
+                {/* } */}
+
             </div>
 
             <div>
@@ -317,7 +333,7 @@ function Dashboard() {
             </nav>
 
             {/* main content  */}
-            <div className={classes.content}>
+            <div style={{ overflow: 'scroll' }} className={classes.content}>
                 <div className={classes.toolbar} />
                 <DashboardContent />
             </div>
@@ -325,8 +341,6 @@ function Dashboard() {
     );
 }
 Dashboard.propTypes = {
-    // Injected by the documentation to work in an iframe.
-    // You won't need it on your project.
     container: PropTypes.object,
 };
 export default Dashboard;

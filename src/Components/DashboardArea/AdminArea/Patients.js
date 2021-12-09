@@ -29,6 +29,7 @@ const columns = [
 
 const Patients = () => {
 
+
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(15);
 

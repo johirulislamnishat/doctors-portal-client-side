@@ -34,7 +34,7 @@ const Login = () => {
         // console.log(loginData.email);
         //session storage
         setUser(loginData.email);
-        sessionStorage.setItem("email", loginData.email);
+        localStorage.setItem("email", loginData.email);
 
         alert('Login Success!!!')
         e.preventDefault();
@@ -52,7 +52,7 @@ const Login = () => {
 
                 //session storage
                 setUser(result.user);
-                sessionStorage.setItem("email", result.user.email);
+                localStorage.setItem("email", result.user.email);
                 // console.log(result.user);
             })
     }
@@ -61,7 +61,7 @@ const Login = () => {
         <>
             <Header />
 
-            <div class="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
+            <div class="mt-5 container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
                 <div class="card card0 border-0">
                     <div class="row d-flex">
                         <div class="col-lg-6">

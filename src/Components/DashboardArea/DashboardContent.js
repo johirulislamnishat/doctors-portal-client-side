@@ -10,6 +10,8 @@ import MyAppointment from './UserArea/MyAppointment';
 import MyPrescription from './UserArea/MyPrescriptions';
 import Review from './UserArea/Review';
 import AddAdmin from './AdminArea/AddAdmin';
+import ManageDoctors from './AdminArea/ManageDoctors';
+import Payment from './UserArea/Payment';
 
 
 const DashboardContent = () => {
@@ -24,7 +26,7 @@ const DashboardContent = () => {
                     <DashboardAdmin />
                 </Route>
 
-                <Route path={`${path}/appointment`}>
+                <Route path={`${path}/appointments`}>
                     <Appointment />
                 </Route>
 
@@ -40,6 +42,10 @@ const DashboardContent = () => {
                     <AddDoctor />
                 </Route>
 
+                <Route path={`${path}/manage-doctors`}>
+                    <ManageDoctors />
+                </Route>
+
                 <Route path={`${path}/add-new-admin`}>
                     <AddAdmin />
                 </Route>
@@ -52,6 +58,10 @@ const DashboardContent = () => {
 
                 <Route path={`${path}/my-appointment`}>
                     <MyAppointment />
+                </Route>
+
+                <Route path={`${path}/payment/:appointmentId`}>
+                    <Payment />
                 </Route>
 
                 <Route path={`${path}/my-prescriptions`}>

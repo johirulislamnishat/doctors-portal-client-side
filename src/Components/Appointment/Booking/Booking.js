@@ -6,7 +6,7 @@ import BookingModal from '../BookingModal/BookingModal';
 
 const Booking = ({ appointment, date }) => {
 
-    const { img, category, name, education, designation, department, hospital } = appointment;
+    const { img, category, name, education, designation, department, hospital, price } = appointment;
 
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
@@ -25,6 +25,7 @@ const Booking = ({ appointment, date }) => {
                         <h6 className="mt-4">{designation}</h6>
                         <h6 className="department">{department}</h6>
                         <h6 className="hospital">{hospital}</h6>
+                        <h6 className="hospital">৳ {price}</h6>
                         {/* <div className="text-center">
 						<button className="btn btn-primary button-style mt-3" onClick={() => modalController(id)}>
 							<FontAwesomeIcon icon={faCalendarCheck} className="mr-3" /> Book Appointment

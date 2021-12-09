@@ -11,7 +11,7 @@ const BookingModal = ({ date, open, handleClose, appointment }) => {
     const { img, category, name, hospital } = appointment;
     const [openSneackBar, setOpenSneackBar] = useState(false);
     const [bookingInfo, setBookingInfo] = useState();
-    const email = sessionStorage.getItem('email');
+    const email = localStorage.getItem('email');
 
     const handleOnSubmit = e => {
         e.email = (email)

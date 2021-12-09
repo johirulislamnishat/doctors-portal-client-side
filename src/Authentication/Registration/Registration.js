@@ -41,7 +41,7 @@ const Registration = () => {
         history.push(redirect_uri);
         // console.log(signupData.email);
         setUser(signupData.email);
-        sessionStorage.setItem("email", signupData.email);
+        localStorage.setItem("email", signupData.email);
 
         alert('Registration Success!!!')
 
@@ -60,7 +60,7 @@ const Registration = () => {
 
                 //session storage
                 setUser(result.user);
-                sessionStorage.setItem("email", result.user.email);
+                localStorage.setItem("email", result.user.email);
                 // console.log(result.user);
             })
     }
@@ -69,7 +69,7 @@ const Registration = () => {
         <>
             <Header />
 
-            <div class="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
+            <div class="mt-5 container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
                 <div class="card card0 border-0">
                     <div class="row d-flex">
                         <div class="col-lg-6">

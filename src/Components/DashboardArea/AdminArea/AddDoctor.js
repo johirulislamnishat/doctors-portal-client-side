@@ -8,50 +8,6 @@ const AddDoctor = () => {
         window.scrollTo(0, 0);
     }, []);
 
-    // const [info, setInfo] = useState({});
-    // const [file, setFile] = useState(null);
-
-    // const handleBlur = (e) => {
-    //     const newInfo = { ...info };
-    //     newInfo[e.target.name] = e.target.value;
-    //     setInfo(newInfo);
-    // };
-
-    // const handleFileChange = (e) => {
-    //     const newFile = e.target.files[0];
-    //     setFile(newFile);
-    // };
-
-    // const handleSubmit = (e) => {
-    //     e.preventDefault();
-    //     const formData = new FormData();
-    //     // console.log(info);
-    //     formData.append('file', file);
-    //     formData.append('id', Math.round(Math.random() * 100 + 15));
-    //     formData.append('category', info.category);
-    //     formData.append('name', info.name);
-    //     formData.append('education', info.education);
-    //     formData.append('designation', info.designation);
-    //     formData.append('department', info.department);
-    //     formData.append('hospital', info.hospital);
-    //     formData.append('img', info.img);
-
-    //     fetch('http://localhost:5000/addADoctor', {
-    //         method: 'POST',
-    //         body: formData
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             if (data.true) {
-    //                 alert('Done')
-    //             }
-    //             console.log(data);
-    //         })
-    //         .catch((error) => {
-    //             console.error(error);
-    //         });
-    // };
-
     const { register, handleSubmit, reset } = useForm();
 
     const onSubmit = data => {
@@ -70,7 +26,7 @@ const AddDoctor = () => {
     return (
         <div className="container-fluid row" style={{ backgroundColor: '#F4FDFB' }}>
 
-            <div id="responsive-dashboard" className="col-md-10 p-4 doctorForm" style={{ position: 'absolute', right: 0, backgroundColor: '#F4FDFB' }}>
+            <div id="responsive-dashboard" className="col-md-10 p-4 doctorForm mx-auto" style={{ backgroundColor: '#F4FDFB' }}>
                 <h5 className="text-brand mb-4">Add a Doctor</h5>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="form-group col-6">
@@ -83,23 +39,47 @@ const AddDoctor = () => {
                             required={true}
                         />
                     </div>
+
                     <div className="form-group col-6">
                         <label htmlFor="exampleInputPassword1">Name</label>
                         <input
                             {...register("name")}
                             type="text"
                             className="form-control"
-                            placeholder="Enter Your Name"
+                            placeholder="Enter Doctor Name"
                             required={true}
                         />
                     </div>
+
+                    <div className="form-group col-6">
+                        <label htmlFor="exampleInputPassword1">Phone Number</label>
+                        <input
+                            {...register("phone")}
+                            type="text"
+                            className="form-control"
+                            placeholder="Enter Doctor Number"
+                            required={true}
+                        />
+                    </div>
+
+                    <div className="form-group col-6">
+                        <label htmlFor="exampleInputPassword1">Email</label>
+                        <input
+                            {...register("email")}
+                            type="email"
+                            className="form-control"
+                            placeholder="Enter Doctor Email"
+                            required={true}
+                        />
+                    </div>
+
                     <div className="form-group col-6">
                         <label htmlFor="exampleInputPassword1">Education</label>
                         <textarea
                             {...register("education")}
                             type="text"
                             className="form-control"
-                            placeholder="Enter Your Education"
+                            placeholder="Enter Doctor Education"
                             required={true}
                         />
                     </div>
@@ -109,7 +89,7 @@ const AddDoctor = () => {
                             {...register("designation")}
                             type="text"
                             className="form-control"
-                            placeholder="Enter Your Designation"
+                            placeholder="Enter Doctor Designation"
                             required={true}
                         />
                     </div>
@@ -119,20 +99,33 @@ const AddDoctor = () => {
                             {...register("department")}
                             type="text"
                             className="form-control"
-                            placeholder="Enter Your Department"
+                            placeholder="Enter Doctor Department"
                             required={true}
                         />
                     </div>
+
                     <div className="form-group col-6">
                         <label htmlFor="exampleInputPassword1">Hospital</label>
                         <input
                             {...register("hospital")}
                             type="text"
                             className="form-control"
-                            placeholder="Enter Your Hospital"
+                            placeholder="Enter Doctor Hospital"
                             required={true}
                         />
                     </div>
+
+                    <div className="form-group col-6">
+                        <label htmlFor="exampleInputPassword1">Price</label>
+                        <input
+                            {...register("price")}
+                            type="number"
+                            className="form-control"
+                            placeholder="Enter Price"
+                            required={true}
+                        />
+                    </div>
+
                     <div className="form-group col-6 pt-2">
                         <label htmlFor="exampleInputPassword1">
                             Upload a image in

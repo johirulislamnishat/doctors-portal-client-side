@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import '../Doctors/Doctors.css';
 
 const Doctor = ({ doctor }) => {
-	const { img, category, name, education, designation, department, hospital } = doctor;
+	const { img, category, name, education, designation, department, hospital, price } = doctor;
 
 	const [descriptionCollapse, setDescriptionCollapse] = useState(false);
 
@@ -44,6 +44,7 @@ const Doctor = ({ doctor }) => {
 				<h6 className="mt-4">{designation}</h6>
 				<h6 className="department">{department}</h6>
 				<h6 className="hospital">{hospital}</h6>
+				<h6 className="hospital">৳ {price}</h6>
 				<div className="text-center">
 					<Link to="/appointment">
 						<button className="btn btn-primary button-style mt-3">

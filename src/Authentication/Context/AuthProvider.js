@@ -8,7 +8,7 @@ const AuthProvider = ({ children }) => {
     const allContext = useFirebase();
     // const [appointments, setAppointments] = useState([]);
     // const [count, setCount] = useState(0);
-    // const email = sessionStorage.getItem('email');
+    // const email = localStorage.getItem('email');
 
     // useEffect(() => {
     //     fetch(`http://localhost:5000/appointments/${email}`)
