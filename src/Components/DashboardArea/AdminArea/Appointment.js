@@ -28,14 +28,14 @@ const Appointment = () => {
 
 
     const [appointments, setAppointments] = useState([]);
-    const [cancelAppointments, setCancelAppointments] = useState([]);
 
     useEffect(() => {
         fetch(`http://localhost:5000/appointments`)
             .then(res => res.json())
             // .then(data => console.log(data))
             .then(data => setAppointments(data))
-    })
+    }, [])
+
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(10);
 
@@ -54,6 +54,9 @@ const Appointment = () => {
     const handleStatusChange = (event) => {
         setStatus(event.target.value);
     };
+
+
+    const [cancelAppointments, setCancelAppointments] = useState([]);
 
     //Cancel Appointment
     const handleCancelAppointment = id => {

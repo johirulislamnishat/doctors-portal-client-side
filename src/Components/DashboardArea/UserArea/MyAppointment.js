@@ -45,14 +45,15 @@ const MyAppointment = () => {
     const [appointments, setAppointments] = useState([]);
     const email = localStorage.getItem('email');
 
+    console.log(email)
 
     useEffect(() => {
-        const url = (`http://localhost:5000/appointments/${email}`)
+        const url = (`http://localhost:5000/appointment/${email}`)
         fetch(url)
             .then(res => res.json())
             // .then(data => console.log(data))
             .then(data => setAppointments(data))
-    }, [email])
+    }, [])
 
     const [deleteAppointment, setDeleteAppointment] = useState([]);
 
@@ -80,76 +81,79 @@ const MyAppointment = () => {
         <>
 
             {
-                appointments.length === 0 ? (<div >
-                    <h1>Hello!!! {user.displayName}</h1>
-                    <h1>Please book an appointment</h1>
-                </div>)
+                appointments.length === 0 ? (
+                    <div >
+                        <h1>Hello!!! {user.displayName}</h1>
+                        <h1>Please book an appointment</h1>
+                    </div>
+                )
                     :
-                    (<Paper sx={{ width: '100%', overflow: 'hidden' }}>
+                    (
+                        <Paper sx={{ width: '100%', overflow: 'hidden' }}>
 
-                        <TableContainer sx={{ maxHeight: 550 }}>
-                            <Table stickyHeader aria-label="sticky table">
-                                <TableHead>
-                                    <TableRow>
-                                        {columns.map((column) => (
-                                            <TableCell
-                                                key={column.id}
-                                                align={column.align}
-                                                style={{ minWidth: column.minWidth }}
-                                            >
-                                                {column.label}
-                                            </TableCell>
-                                        ))}
-                                    </TableRow>
-                                </TableHead>
+                            <TableContainer sx={{ maxHeight: 550 }}>
+                                <Table stickyHeader aria-label="sticky table">
+                                    <TableHead>
+                                        <TableRow>
+                                            {columns.map((column) => (
+                                                <TableCell
+                                                    key={column.id}
+                                                    align={column.align}
+                                                    style={{ minWidth: column.minWidth }}
+                                                >
+                                                    {column.label}
+                                                </TableCell>
+                                            ))}
+                                        </TableRow>
+                                    </TableHead>
 
-                                <TableBody>
-                                    {appointments
-                                        .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                                        .map((appointment) => {
-                                            return (
-                                                <TableRow hover role="checkbox" tabIndex={-1} key={appointment.id}>
+                                    <TableBody>
+                                        {appointments
+                                            .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                                            .map((appointment) => {
+                                                return (
+                                                    <TableRow hover role="checkbox" tabIndex={-1} key={appointment.id}>
 
-                                                    <TableCell >
-                                                        {appointment.patient_name}
-                                                    </TableCell>
+                                                        <TableCell >
+                                                            {appointment.patient_name}
+                                                        </TableCell>
 
-                                                    <TableCell >
-                                                        {appointment.name}
-                                                    </TableCell>
+                                                        <TableCell >
+                                                            {appointment.name}
+                                                        </TableCell>
 
-                                                    <TableCell >
-                                                        {appointment.category}
-                                                    </TableCell>
+                                                        <TableCell >
+                                                            {appointment.category}
+                                                        </TableCell>
 
-                                                    <TableCell> {appointment.date} </TableCell>
-                                                    <TableCell> {appointment.time} </TableCell>
-                                                    <TableCell> {appointment.hospital} </TableCell>
-                                                    <TableCell> {appointment.status} </TableCell>
-                                                    <TableCell> {appointment.payment ? 'Paid' : (
-                                                        <Link to={`/dashboard/payment/${appointment._id}`}> Pay Now </Link>
-                                                    )} </TableCell>
-                                                    <TableCell> {appointment.meetlink} </TableCell>
-                                                    <TableCell style={{ fontSize: 23 }} > <button className='bg-transparent border-0' onClick={() => handleDeleteAppointment(appointment._id)}><i style={{ cursor: 'pointer' }} className="far fa-trash-alt text-danger"></i></button> </TableCell>
+                                                        <TableCell> {appointment.date} </TableCell>
+                                                        <TableCell> {appointment.time} </TableCell>
+                                                        <TableCell> {appointment.hospital} </TableCell>
+                                                        <TableCell> {appointment.status} </TableCell>
+                                                        <TableCell> {appointment.payment ? 'Paid' : (
+                                                            <Link to={`/dashboard/payment/${appointment._id}`}> Pay Now </Link>
+                                                        )} </TableCell>
+                                                        <TableCell> {appointment.meetlink} </TableCell>
+                                                        <TableCell style={{ fontSize: 23 }} > <button className='bg-transparent border-0' onClick={() => handleDeleteAppointment(appointment._id)}><i style={{ cursor: 'pointer' }} className="far fa-trash-alt text-danger"></i></button> </TableCell>
 
 
-                                                </TableRow>
-                                            );
-                                        })}
-                                </TableBody>
-                            </Table>
-                        </TableContainer>
+                                                    </TableRow>
+                                                );
+                                            })}
+                                    </TableBody>
+                                </Table>
+                            </TableContainer>
 
-                        <TablePagination
-                            rowsPerPageOptions={[10, 25, 100]}
-                            component="div"
-                            count={appointments.length}
-                            rowsPerPage={rowsPerPage}
-                            page={page}
-                            onPageChange={handleChangePage}
-                            onRowsPerPageChange={handleChangeRowsPerPage}
-                        />
-                    </Paper>)
+                            <TablePagination
+                                rowsPerPageOptions={[10, 25, 100]}
+                                component="div"
+                                count={appointments.length}
+                                rowsPerPage={rowsPerPage}
+                                page={page}
+                                onPageChange={handleChangePage}
+                                onRowsPerPageChange={handleChangeRowsPerPage}
+                            />
+                        </Paper>)
             }
         </>
     );

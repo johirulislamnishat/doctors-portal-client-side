@@ -12,6 +12,7 @@ import Review from './UserArea/Review';
 import AddAdmin from './AdminArea/AddAdmin';
 import ManageDoctors from './AdminArea/ManageDoctors';
 import Payment from './UserArea/Payment';
+import CardInfo from './UserArea/CardInfo';
 
 
 const DashboardContent = () => {
@@ -62,6 +63,10 @@ const DashboardContent = () => {
 
                 <Route path={`${path}/payment/:appointmentId`}>
                     <Payment />
+                </Route>
+
+                <Route path={`${path}/cardInfo`}>
+                    <CardInfo />
                 </Route>
 
                 <Route path={`${path}/my-prescriptions`}>

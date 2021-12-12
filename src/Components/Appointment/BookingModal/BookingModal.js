@@ -8,7 +8,7 @@ import Sneackbar from '../../Sneackbar';
 
 const BookingModal = ({ date, open, handleClose, appointment }) => {
 
-    const { img, category, name, hospital } = appointment;
+    const { img, name, category, price, hospital } = appointment;
     const [openSneackBar, setOpenSneackBar] = useState(false);
     const [bookingInfo, setBookingInfo] = useState();
     const email = localStorage.getItem('email');
@@ -18,9 +18,10 @@ const BookingModal = ({ date, open, handleClose, appointment }) => {
         // collect data
         const bookAppoint = {
             ...bookingInfo,
-            name,
             img,
+            name,
             category,
+            price,
             hospital,
             date: date.toLocaleDateString(),
             email,
@@ -135,9 +136,18 @@ const BookingModal = ({ date, open, handleClose, appointment }) => {
                             disabled
                             id="outlined-disabled"
                             sx={{ width: '100%', mb: 2 }}
+                            label="Price"
+                            defaultValue={price}
+                        />
+
+                        <TextField
+                            disabled
+                            id="outlined-disabled"
+                            sx={{ width: '100%', mb: 2 }}
                             label="Hospital"
                             defaultValue={hospital}
                         />
+
 
                         <TextField
                             onBlur={handleOnBlur}

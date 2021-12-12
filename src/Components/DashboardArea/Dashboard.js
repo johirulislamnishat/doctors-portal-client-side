@@ -206,12 +206,6 @@ function Dashboard() {
                         </Link>
                     </ListItem>
 
-                    {/* <ListItem button>
-                        <Link to={`${url}/payment`} >
-                            <FontAwesomeIcon style={{ width: 17, marginRight: 5 }} icon={faMoneyCheckAlt} /> <span>Payment</span>
-                        </Link>
-                    </ListItem> */}
-
                     <ListItem button>
                         <Link to={`${url}/my-prescriptions`}>
                             <FontAwesomeIcon style={{ width: 17, marginRight: 5 }} icon={faUsers} /> <span>My Prescriptions</span>
