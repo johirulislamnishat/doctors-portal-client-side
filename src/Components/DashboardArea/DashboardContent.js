@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route, useRouteMatch } from "react-router-dom";
 import DashboardAdmin from './AdminArea/DashboardAdmin';
-import Patients from './AdminArea/Patients';
+import Patients from './AdminArea/ManagePatients';
 import Appointment from './AdminArea/Appointment';
 import Prescriptions from './AdminArea/Prescriptions';
 import AddDoctor from './AdminArea/AddDoctor';
@@ -13,6 +13,7 @@ import AddAdmin from './AdminArea/AddAdmin';
 import ManageDoctors from './AdminArea/ManageDoctors';
 import Payment from './UserArea/Payment';
 import CardInfo from './UserArea/CardInfo';
+import SendMeetLink from './AdminArea/SendMeetLink';
 
 
 const DashboardContent = () => {
@@ -51,6 +52,9 @@ const DashboardContent = () => {
                     <AddAdmin />
                 </Route>
 
+                <Route path={`${path}/meetlink/:meetingId`}>
+                    <SendMeetLink />
+                </Route>
 
                 {/* user menu  */}
                 <Route path={`${path}/dashboard`}>
@@ -65,13 +69,17 @@ const DashboardContent = () => {
                     <Payment />
                 </Route>
 
+                <Route path={`${path}/prescription/:prescriptionId`}>
+                    <MyPrescription />
+                </Route>
+
                 <Route path={`${path}/cardInfo`}>
                     <CardInfo />
                 </Route>
 
-                <Route path={`${path}/my-prescriptions`}>
+                {/* <Route path={`${path}/my-prescriptions`}>
                     <MyPrescription />
-                </Route>
+                </Route> */}
 
                 <Route path={`${path}/review`}>
                     <Review />

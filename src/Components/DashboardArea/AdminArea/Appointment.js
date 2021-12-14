@@ -10,6 +10,7 @@ import Box from '@mui/material/Box';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import axios from "axios";
 
 const columns = [
     { id: 'user', label: 'User' },
@@ -28,14 +29,17 @@ const Appointment = () => {
 
 
     const [appointments, setAppointments] = useState([]);
+    const [isReload, setIsReload] = useState(false);
 
     useEffect(() => {
         fetch(`http://localhost:5000/appointments`)
             .then(res => res.json())
             // .then(data => console.log(data))
             .then(data => setAppointments(data))
-    }, [])
+    }, [isReload])
 
+
+    //shorting data
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(10);
 
@@ -48,17 +52,29 @@ const Appointment = () => {
         setPage(0);
     };
 
-    //status update
-    const [status, setStatus] = useState('');
+    //appointment status change
+    const handleAppointmentStatus = (e, statusId) => {
+        // console.log(e.target.innerText)
+        axios.patch(
 
-    const handleStatusChange = (event) => {
-        setStatus(event.target.value);
+            `http://localhost:5000/update-status/${statusId}`,
+            {
+                status: e.target.innerText,
+            }
+        )
+            .then(res => {
+                // console.log(res)
+                res.data.modified && setIsReload(!isReload);
+            })
+
+            .catch((error) => {
+                console.log(error);
+            });
     };
 
-
+    //Cancel Appointment
     const [cancelAppointments, setCancelAppointments] = useState([]);
 
-    //Cancel Appointment
     const handleCancelAppointment = id => {
         const proceed = window.confirm('Are you sure you want to delete?');
         if (proceed) {
@@ -81,7 +97,7 @@ const Appointment = () => {
     return (
         <>
             <Paper sx={{ width: '100%', overflow: 'hidden' }}>
-                <TableContainer sx={{ maxHeight: 440 }}>
+                <TableContainer sx={{ maxHeight: 540 }}>
                     <Table stickyHeader aria-label="sticky table">
                         <TableHead>
                             <TableRow>
@@ -117,14 +133,12 @@ const Appointment = () => {
                                             <TableCell> {row.hospital} </TableCell>
                                             <TableCell> {<Box sx={{ minWidth: 120 }}>
                                                 <FormControl sx={{ m: 1, minWidth: 120 }}>
-                                                    <Select
-                                                        value={status} onChange={handleStatusChange}
-                                                        displayEmpty
-                                                        inputProps={{ 'aria-label': 'Without label' }}
-                                                    >
-                                                        <MenuItem value={10}>Pending</MenuItem>
-                                                        <MenuItem value={20}>Active</MenuItem>
-                                                        <MenuItem value={30}>Cancel</MenuItem>
+                                                    <Select inputProps={{ 'aria-label': 'Without label' }} >
+
+                                                        <MenuItem value={10}>{row.status}</MenuItem>
+                                                        <MenuItem onClick={(e) => handleAppointmentStatus(e, row._id)} value={20}>Pending</MenuItem>
+                                                        <MenuItem onClick={(e) => handleAppointmentStatus(e, row._id)} value={30}>Active</MenuItem>
+                                                        <MenuItem onClick={(e) => handleAppointmentStatus(e, row._id)} value={40}>Completed</MenuItem>
                                                     </Select>
                                                 </FormControl>
                                             </Box>}

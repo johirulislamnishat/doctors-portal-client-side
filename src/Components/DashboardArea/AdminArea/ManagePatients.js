@@ -6,29 +6,25 @@ import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import DoctorInfo from './DoctorInfo';
-import UpdateDoctor from './UpdateDoctor';
+import PatientInfo from './PatientInfo';
 
 const columns = [
-
-    { id: 'doctorName', label: 'Doctor Name', minWidth: 250, },
-    { id: 'phone', label: 'Phone Number', minWidth: 150, },
+    { id: 'user', label: 'Patient Name', minWidth: 170, },
+    { id: 'age', label: 'Age', minWidth: 40, },
+    { id: 'weight', label: 'Weight', minWidth: 40, },
+    { id: 'phone', label: 'Phone Number', minWidth: 100, },
     { id: 'email', label: 'Email', minWidth: 150, },
-    { id: 'designation', label: 'Designation', minWidth: 140, },
-    { id: 'department', label: 'Department', minWidth: 100, },
-    { id: 'education', label: 'Education', minWidth: 100, },
-    { id: 'hospital', label: 'Hospital', minWidth: 100, },
-    { id: 'price', label: 'Price', minWidth: 50, },
-    // { id: 'time', label: 'Time', minWidth: 150, },
-
-    { id: 'update', label: 'Update', },
-    { id: 'delete', label: 'Delete', }
+    { id: 'location', label: 'Location', minWidth: 150, },
+    { id: 'meetlink', label: 'MeetLink', minWidth: 150, },
+    { id: 'prescription', label: 'Prescription', minWidth: 180, },
+    { id: 'status', label: 'Status', },
+    { id: 'action', label: 'Action', }
 
 ];
-const ManageDoctors = () => {
 
-    //   table 
+const Patients = () => {
+
+
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(15);
 
@@ -41,19 +37,33 @@ const ManageDoctors = () => {
         setPage(0);
     };
 
-    // doctors data
-    const [doctors, setDoctors] = useState([]);
+
+    // patient data
+
+    const [patients, setPatients] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/doctors')
+        const url = (`http://localhost:5000/appointments/`)
+        fetch(url)
             .then(res => res.json())
-            .then(data => setDoctors(data))
+            // .then(data => console.log(data))
+            .then(data => setPatients(data))
+    }, [])
+
+    const [users, setUsers] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:5000/users')
+            .then(res => res.json())
+            .then(data => setUsers(data))
     }, [])
 
 
 
     return (
+
         <>
+
             <Paper sx={{ width: '100%', overflow: 'hidden' }}>
                 <TableContainer sx={{ maxHeight: 550 }}>
                     <Table stickyHeader aria-label="sticky table">
@@ -72,15 +82,14 @@ const ManageDoctors = () => {
                         </TableHead>
 
                         <TableBody>
-                            {doctors
+                            {patients
                                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                                .map((doctor) => {
+                                .map((patient) => {
                                     return (
-
-                                        <DoctorInfo
-                                            key={doctor.id}
-                                            doctor={doctor}
-                                        ></DoctorInfo>
+                                        <PatientInfo
+                                            key={patient._id}
+                                            patient={patient}
+                                        ></PatientInfo>
                                     );
                                 })}
                         </TableBody>
@@ -90,7 +99,7 @@ const ManageDoctors = () => {
                 <TablePagination
                     rowsPerPageOptions={[10, 25, 100]}
                     component="div"
-                    count={doctors.length}
+                    count={users.length}
                     rowsPerPage={rowsPerPage}
                     page={page}
                     onPageChange={handleChangePage}
@@ -102,4 +111,4 @@ const ManageDoctors = () => {
     );
 };
 
-export default ManageDoctors;
+export default Patients;

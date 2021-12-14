@@ -22,7 +22,7 @@ const Payment = () => {
     return (
         <div >
             Tk de: {payAppointment.patient_name}
-            <span>Tk de:$</span> {payAppointment.price}
+            <span>Tk de</span> {payAppointment.price}
 
             {payAppointment?.price && (
                 <Elements stripe={stripePromise}>

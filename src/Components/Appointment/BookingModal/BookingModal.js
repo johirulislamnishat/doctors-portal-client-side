@@ -25,6 +25,7 @@ const BookingModal = ({ date, open, handleClose, appointment }) => {
             hospital,
             date: date.toLocaleDateString(),
             email,
+            meetingLink: 'Waiting'
 
         }
 
@@ -207,9 +208,7 @@ const BookingModal = ({ date, open, handleClose, appointment }) => {
                             label="Address"
                         />
 
-
-                        <Button type='submit' sx={{ background: "rgba(25,211,174)" }} variant="contained" uppercase='true'>Confirm</Button>
-
+                        <input class="btn btn-primary my-2" type="submit" value="Submit" />
 
                     </form>
 

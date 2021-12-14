@@ -23,9 +23,14 @@ a:hover {
 	text-transform: uppercase;
 	font-weight: 600;
 }
+.btn-secondary {
+	background-image: linear-gradient(75deg, #19d3ae, #0fcfec) !important;
+	font-size: 18px;
+}
 .text-primary {
 	color: #1cc7c1 !important;
 }
+
 .btn-info {
 	background-color: #76c5ff !important;
 	border-color: transparent !important;

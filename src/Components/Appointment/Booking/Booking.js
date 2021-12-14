@@ -3,11 +3,13 @@ import Grid from '@mui/material/Grid';
 import CardActions from '@mui/material/CardActions';
 import Button from '@mui/material/Button';
 import BookingModal from '../BookingModal/BookingModal';
+import UpdateDoctor from '../../DashboardArea/AdminArea/UpdateDoctor';
 
 const Booking = ({ appointment, date }) => {
 
     const { img, category, name, education, designation, department, hospital, price } = appointment;
 
+    //modal
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -34,7 +36,8 @@ const Booking = ({ appointment, date }) => {
                     </div>
 
                     <CardActions sx={{ display: 'flex', justifyContent: 'center', }}>
-                        <Button onClick={handleOpen} sx={{ background: "rgba(25,211,174)", marginBottom: 4 }} variant="contained" uppercase='true'>Book appointment</Button>
+
+                        <input onClick={handleOpen} class="btn btn-primary my-2" type="submit" value="Book Appointment" />
                     </CardActions>
                 </div>
             </Grid>
@@ -48,6 +51,7 @@ const Booking = ({ appointment, date }) => {
                     handleClose={handleClose}
                     appointment={appointment}
                 ></BookingModal>
+
             </div>
 
 
