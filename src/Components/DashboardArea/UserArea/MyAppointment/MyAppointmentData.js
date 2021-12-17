@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 import { Link } from 'react-router-dom';
-import MeetLinkModal from './MeetLinkModal';
+import MeetLinkModal from '../MeetLinkModal';
+import MyPrescriptions from '../MyPrescriptions';
 
 const MyAppointmentData = ({ appointment }) => {
 
@@ -42,18 +43,23 @@ const MyAppointmentData = ({ appointment }) => {
                 <TableCell> {appointment.date} </TableCell>
                 <TableCell> {appointment.time} </TableCell>
                 <TableCell> {appointment.hospital} </TableCell>
-                <TableCell style={{ fontSize: 17 }}> {appointment.status} </TableCell>
+                {/* <TableCell style={{ fontSize: 17 }}> {appointment.status} </TableCell> */}
                 <TableCell> {appointment.payment ? <div style={{ fontSize: 17 }}>Paid</div> : (
                     <Link style={{ fontSize: 17 }} to={`/dashboard/payment/${appointment._id}`}> Pay Now </Link>
                 )} </TableCell>
 
                 {/* meetlink */}
-                <TableCell><input onClick={handleOpen} class="btn btn-primary my-2" type="submit" value="Get Link" /> </TableCell>
+                <TableCell>
+                    <input onClick={handleOpen} class="btn btn-primary my-2" type="submit" value="Get Link" />
+                </TableCell>
 
                 {/* prescription */}
                 <TableCell>
-                    <Link style={{ fontSize: 17 }} to={`/dashboard/prescription/${appointment._id}`}> View </Link>
+                    <input onClick={handleOpen} class="btn btn-primary my-2" type="submit" value="View" />
                 </TableCell>
+                {/* <TableCell>
+                    <Link style={{ fontSize: 17 }} to={`/dashboard/prescription/${appointment._id}`}> View </Link>
+                </TableCell> */}
 
                 {/* delete button */}
                 <TableCell style={{ fontSize: 23 }} > <button className='bg-transparent border-0' onClick={() => handleDeleteAppointment(appointment._id)}><i style={{ cursor: 'pointer' }} className="far fa-trash-alt text-danger"></i></button> </TableCell>
@@ -66,6 +72,14 @@ const MyAppointmentData = ({ appointment }) => {
                 handleClose={handleClose}
                 appointment={appointment}
             ></MeetLinkModal>
+
+            <MyPrescriptions
+
+                open={open}
+                handleClose={handleClose}
+                appointment={appointment}
+            ></MyPrescriptions>
+
         </>
     );
 };

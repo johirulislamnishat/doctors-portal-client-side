@@ -6,25 +6,26 @@ import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import React, { useEffect, useState } from 'react';
-import PatientInfo from './PatientInfo';
-
+import DoctorInfo from './DoctorInfo';
 const columns = [
-    { id: 'user', label: 'Patient Name', minWidth: 170, },
-    { id: 'age', label: 'Age', minWidth: 40, },
-    { id: 'weight', label: 'Weight', minWidth: 40, },
-    { id: 'phone', label: 'Phone Number', minWidth: 100, },
+
+    { id: 'doctorName', label: 'Doctor Name', minWidth: 250, },
+    { id: 'phone', label: 'Phone Number', minWidth: 150, },
     { id: 'email', label: 'Email', minWidth: 150, },
-    { id: 'location', label: 'Location', minWidth: 150, },
-    { id: 'meetlink', label: 'MeetLink', minWidth: 150, },
-    { id: 'prescription', label: 'Prescription', minWidth: 180, },
-    { id: 'status', label: 'Status', },
-    { id: 'action', label: 'Action', }
+    { id: 'designation', label: 'Designation', minWidth: 140, },
+    { id: 'department', label: 'Department', minWidth: 100, },
+    { id: 'education', label: 'Education', minWidth: 100, },
+    { id: 'hospital', label: 'Hospital', minWidth: 100, },
+    { id: 'price', label: 'Price', minWidth: 50, },
+    // { id: 'time', label: 'Time', minWidth: 150, },
+
+    { id: 'update', label: 'Update', },
+    { id: 'delete', label: 'Delete', }
 
 ];
+const ManageDoctors = () => {
 
-const Patients = () => {
-
-
+    //   table 
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(15);
 
@@ -37,33 +38,19 @@ const Patients = () => {
         setPage(0);
     };
 
-
-    // patient data
-
-    const [patients, setPatients] = useState([]);
+    // doctors data
+    const [doctors, setDoctors] = useState([]);
 
     useEffect(() => {
-        const url = (`http://localhost:5000/appointments/`)
-        fetch(url)
+        fetch('http://localhost:5000/doctors')
             .then(res => res.json())
-            // .then(data => console.log(data))
-            .then(data => setPatients(data))
-    }, [])
-
-    const [users, setUsers] = useState([]);
-
-    useEffect(() => {
-        fetch('http://localhost:5000/users')
-            .then(res => res.json())
-            .then(data => setUsers(data))
+            .then(data => setDoctors(data))
     }, [])
 
 
 
     return (
-
         <>
-
             <Paper sx={{ width: '100%', overflow: 'hidden' }}>
                 <TableContainer sx={{ maxHeight: 550 }}>
                     <Table stickyHeader aria-label="sticky table">
@@ -82,14 +69,15 @@ const Patients = () => {
                         </TableHead>
 
                         <TableBody>
-                            {patients
+                            {doctors
                                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                                .map((patient) => {
+                                .map((doctor) => {
                                     return (
-                                        <PatientInfo
-                                            key={patient._id}
-                                            patient={patient}
-                                        ></PatientInfo>
+
+                                        <DoctorInfo
+                                            key={doctor.id}
+                                            doctor={doctor}
+                                        ></DoctorInfo>
                                     );
                                 })}
                         </TableBody>
@@ -99,7 +87,7 @@ const Patients = () => {
                 <TablePagination
                     rowsPerPageOptions={[10, 25, 100]}
                     component="div"
-                    count={users.length}
+                    count={doctors.length}
                     rowsPerPage={rowsPerPage}
                     page={page}
                     onPageChange={handleChangePage}
@@ -111,4 +99,4 @@ const Patients = () => {
     );
 };
 
-export default Patients;
+export default ManageDoctors;

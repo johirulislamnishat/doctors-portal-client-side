@@ -1,11 +1,11 @@
-import { Button } from '@mui/material';
+// import { Button } from '@mui/material';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 import React, { useState } from 'react';
-import Box from '@mui/material/Box';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
+// import Box from '@mui/material/Box';
+// import MenuItem from '@mui/material/MenuItem';
+// import FormControl from '@mui/material/FormControl';
+// import Select from '@mui/material/Select';
 import { Link } from 'react-router-dom';
 
 const PatientInfo = ({ patient }) => {
@@ -62,11 +62,16 @@ const PatientInfo = ({ patient }) => {
 
                 {/* prescription */}
                 <TableCell>
-                    <Link to={`/dashboard/prescription/${patient._id}`} className='btn-secondary px-3 py-2 rounded-pill'>Send Rx</Link>
+                    <Link to={`/dashboard/prescription/${patient._id}`} className='btn-secondary px-3 py-2 rounded-pill' >Send Rx</Link>
+                </TableCell>
+
+                {/*  */}
+                <TableCell>
+                    <Link to={`/dashboard/prescription/${patient._id}`} className='btn-secondary px-3 py-2 rounded-pill'></Link>
 
                 </TableCell>
 
-                <TableCell> {<Box sx={{ minWidth: 120 }}>
+                {/* <TableCell> {<Box sx={{ minWidth: 120 }}>
 
                     <FormControl sx={{ m: 1, minWidth: 120 }}>
                         <Select
@@ -80,7 +85,8 @@ const PatientInfo = ({ patient }) => {
                         </Select>
                     </FormControl>
                 </Box>}
-                </TableCell>
+                </TableCell> */}
+
                 <TableCell style={{ fontSize: 23 }} > <button className='bg-transparent border-0' onClick={() => handleDeleteUser(patient._id)}><i style={{ cursor: 'pointer' }} className="far fa-trash-alt text-danger"></i></button> </TableCell>
 
 

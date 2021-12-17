@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import Grid from '@mui/material/Grid';
 import CardActions from '@mui/material/CardActions';
-import Button from '@mui/material/Button';
 import BookingModal from '../BookingModal/BookingModal';
-import UpdateDoctor from '../../DashboardArea/AdminArea/UpdateDoctor';
+
 
 const Booking = ({ appointment, date }) => {
 

@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import { Button, TextField } from '@mui/material';
+import { TextField } from '@mui/material';
 import Sneackbar from '../../Sneackbar';
-
 
 const BookingModal = ({ date, open, handleClose, appointment }) => {
 
@@ -25,7 +24,8 @@ const BookingModal = ({ date, open, handleClose, appointment }) => {
             hospital,
             date: date.toLocaleDateString(),
             email,
-            meetingLink: 'Waiting'
+            meetingLink: 'Please Wait For Link',
+            prescriptions: 'Write Prescription',
 
         }
 

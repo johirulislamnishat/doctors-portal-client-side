@@ -2,65 +2,64 @@ import React, { useState, useEffect } from 'react';
 // import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
 
-const SendMeetLink = () => {
+const SendPrescription = () => {
 
-    const [meetLink, setMeetLink] = useState({})
-    const { meetingLink } = meetLink;
+    const [prescription, setPrescription] = useState({})
+    // const { prescriptions } = prescription;
 
-    const { meetingId } = useParams();
+    const { prescriptionId } = useParams();
 
     useEffect(() => {
-        const url = `http://localhost:5000/meeting/${meetingId}`
+        const url = `http://localhost:5000/prescription/${prescriptionId}`
         fetch(url)
             .then(res => res.json())
-            .then(data => setMeetLink(data))
-    }, [meetingId])
+            .then(data => console.log(data))
+        // .then(data => setPrescription(data))
+    }, [])
 
     const handleLinkChange = e => {
-        const updateLink = e.target.value;
-        const updatedLink = { ...meetLink };
-        updatedLink.meetingLink = updateLink;
-        setMeetLink(updatedLink);
+        const updatePrescription = e.target.value;
+        const updatedPrescription = { ...prescription };
+        updatedPrescription.prescriptions = updatePrescription;
+        setPrescription(updatedPrescription);
     }
 
-    const handleLinkSubmit = e => {
+    const handlePrescriptionSubmit = e => {
         e.preventDefault();
-        const url = `http://localhost:5000/meeting/${meetingId}`
+        const url = `http://localhost:5000/prescription/${prescriptionId}`
 
         fetch(url, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(meetLink)
+            body: JSON.stringify(prescription)
         })
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedCount > 0) {
                     alert('Send SuccessFull')
-                    setMeetLink({})
+                    setPrescription({})
                 }
             })
 
 
     };
 
-
-
     return (
         <div>
             <div class="form-box">
-                <h1>Send Meeting Link</h1>
+                <h1>Write And Send Prescription {prescriptionId}</h1>
 
-                <form className='mt-5' onSubmit={handleLinkSubmit}>
+                <form className='mt-5' onSubmit={handlePrescriptionSubmit}>
                     <div class="form-group">
-                        <label>Link</label>
+                        <label>Prescription</label>
                         <input
 
                             onChange={handleLinkChange}
-                            value={meetingLink || ''}
+                            value={'prescriptions' || ''}
                             type="text" required
-                            placeholder="Enter Meeting Link"
+                            placeholder="Write Prescription"
                             class="form-control" />
                         {/* {errors.exampleRequired && <span>This field is required</span>} */}
                     </div>
@@ -72,4 +71,4 @@ const SendMeetLink = () => {
     );
 };
 
-export default SendMeetLink;
+export default SendPrescription;

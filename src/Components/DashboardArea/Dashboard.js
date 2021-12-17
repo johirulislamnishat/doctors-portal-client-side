@@ -19,7 +19,7 @@ import Stack from '@mui/material/Stack';
 import { Box } from '@mui/system';
 import { Link, useRouteMatch } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCalendar, faFileAlt, faGripHorizontal, faMoneyCheckAlt, faSignOutAlt, faUserPlus, faUsers } from '@fortawesome/free-solid-svg-icons';
+import { faCalendar, faFileAlt, faGripHorizontal, faSignOutAlt, faUserPlus, faUsers } from '@fortawesome/free-solid-svg-icons';
 import DashboardContent from './DashboardContent';
 import useAuth from '../../Authentication/Hooks/useAuth';
 import { faArtstation } from '@fortawesome/free-brands-svg-icons';
@@ -157,12 +157,6 @@ function Dashboard() {
                     <ListItem button>
                         <Link to={`${url}/patients`}>
                             <FontAwesomeIcon style={{ width: 17, marginRight: 5 }} icon={faUsers} /> <span>Patients</span>
-                        </Link>
-                    </ListItem>
-
-                    <ListItem button>
-                        <Link to={`${url}/prescriptions`}>
-                            <FontAwesomeIcon style={{ width: 17, marginRight: 5 }} icon={faFileAlt} /> <span>Prescriptions</span>
                         </Link>
                     </ListItem>
 

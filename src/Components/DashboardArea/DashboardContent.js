@@ -1,19 +1,18 @@
 import React from 'react';
 import { Switch, Route, useRouteMatch } from "react-router-dom";
 import DashboardAdmin from './AdminArea/DashboardAdmin';
-import Patients from './AdminArea/ManagePatients';
+import ManagePatients from './AdminArea/Patients/ManagePatients';
 import Appointment from './AdminArea/Appointment';
-import Prescriptions from './AdminArea/Prescriptions';
-import AddDoctor from './AdminArea/AddDoctor';
+import AddDoctor from './AdminArea/Doctor/AddDoctor';
 import DashboardUser from './UserArea/DashboardUser';
-import MyAppointment from './UserArea/MyAppointment';
-import MyPrescription from './UserArea/MyPrescriptions';
+import MyAppointment from './UserArea/MyAppointment/MyAppointment';
 import Review from './UserArea/Review';
 import AddAdmin from './AdminArea/AddAdmin';
-import ManageDoctors from './AdminArea/ManageDoctors';
-import Payment from './UserArea/Payment';
-import CardInfo from './UserArea/CardInfo';
+import ManageDoctors from './AdminArea/Doctor/ManageDoctors';
+import Payment from './UserArea/Payments/Payment';
+import CardInfo from './UserArea/Payments/CardInfo';
 import SendMeetLink from './AdminArea/SendMeetLink';
+import SendPrescription from './AdminArea/SendPrescription';
 
 
 const DashboardContent = () => {
@@ -33,11 +32,7 @@ const DashboardContent = () => {
                 </Route>
 
                 <Route path={`${path}/patients`}>
-                    <Patients />
-                </Route>
-
-                <Route path={`${path}/prescriptions`}>
-                    <Prescriptions />
+                    <ManagePatients />
                 </Route>
 
                 <Route path={`${path}/add-doctors`}>
@@ -56,6 +51,10 @@ const DashboardContent = () => {
                     <SendMeetLink />
                 </Route>
 
+                <Route path={`${path}/prescription/:prescriptionId`}>
+                    <SendPrescription />
+                </Route>
+
                 {/* user menu  */}
                 <Route path={`${path}/dashboard`}>
                     <DashboardUser />
@@ -69,9 +68,9 @@ const DashboardContent = () => {
                     <Payment />
                 </Route>
 
-                <Route path={`${path}/prescription/:prescriptionId`}>
+                {/* <Route path={`${path}/prescription/:prescriptionId`}>
                     <MyPrescription />
-                </Route>
+                </Route> */}
 
                 <Route path={`${path}/cardInfo`}>
                     <CardInfo />

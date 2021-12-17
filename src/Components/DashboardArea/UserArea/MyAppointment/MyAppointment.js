@@ -6,8 +6,7 @@ import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
-import { Link } from 'react-router-dom';
-import useAuth from '../../../Authentication/Hooks/useAuth';
+import useAuth from '../../../../Authentication/Hooks/useAuth';
 import MyAppointmentData from './MyAppointmentData';
 
 const columns = [
@@ -18,7 +17,7 @@ const columns = [
     { id: 'date', label: 'Date', minWidth: 60, },
     { id: 'time', label: 'Time', minWidth: 60, },
     { id: 'location', label: 'Location', minWidth: 100, },
-    { id: 'status', label: 'Status', minWidth: 50, },
+    // { id: 'status', label: 'Status', minWidth: 50, },
     { id: 'payment', label: 'Payment', minWidth: 130, },
     { id: 'meetlink', label: 'Meetlink', minWidth: 50, },
     { id: 'prescription', label: 'Prescription', minWidth: 50, },

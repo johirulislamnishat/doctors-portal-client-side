@@ -2,7 +2,7 @@ import { CircularProgress } from '@mui/material';
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import useAuth from '../../../Authentication/Hooks/useAuth';
+import useAuth from '../../../../Authentication/Hooks/useAuth';
 
 const Checkout = ({ payAppointment }) => {
 
@@ -103,15 +103,15 @@ const Checkout = ({ payAppointment }) => {
     }
     return (
         <div>
-            <form onSubmit={handleOnSubmit}>
+            <form style={{ marginTop: 30 }} onSubmit={handleOnSubmit}>
                 <CardElement
                     options={{
                         style: {
                             base: {
-                                fontSize: '16px',
-                                color: '#424770',
+                                fontSize: '18px',
+                                color: '#052944',
                                 '::placeholder': {
-                                    color: '#aab7c4',
+                                    color: '#051d2f91',
                                 },
                             },
                             invalid: {
@@ -122,7 +122,7 @@ const Checkout = ({ payAppointment }) => {
                 />
                 {
                     processing ? (<CircularProgress />) : (
-                        <button type="submit" disabled={!stripe || success}>
+                        <button className='btn btn-primary py-2 px-5 mt-5' type="submit" disabled={!stripe || success}>
                             Pay
                         </button>)
                 }
@@ -136,7 +136,9 @@ const Checkout = ({ payAppointment }) => {
                 success && <p style={{ color: 'green' }}>{success}</p>
             }
 
-            <Link to='/dashboard/cardInfo'>See Card Details</Link>
+            <button className='btn ' style={{ marginTop: 20 }} >
+                <Link className='btn btn-primary py-2 px-4' to='/dashboard/cardInfo'>See Card Details</Link>
+            </button>
         </div>
     );
 };

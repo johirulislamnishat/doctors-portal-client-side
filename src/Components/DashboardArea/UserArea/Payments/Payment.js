@@ -20,9 +20,15 @@ const Payment = () => {
     }, [appointmentId])
 
     return (
-        <div >
-            Tk de: {payAppointment.patient_name}
-            <span>Tk de</span> {payAppointment.price}
+        <div style={{ marginTop: 30 }}>
+            <div style={{ textAlign: 'center' }}>
+
+                <h4 className=" text-center">Hello!! <span className="text-primary text-center">{payAppointment.patient_name}</span></h4>
+
+                <h6>
+                    <span>Please Pay Amount Total:</span> {payAppointment.price}
+                </h6>
+            </div>
 
             {payAppointment?.price && (
                 <Elements stripe={stripePromise}>

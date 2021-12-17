@@ -1,7 +1,6 @@
 import TableCell from '@mui/material/TableCell';
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import UpdateDoctor from './UpdateDoctor';
+import React, { useState } from 'react';
+import UpdateDoctor from '../Doctor/UpdateDoctor';
 import TableRow from '@mui/material/TableRow';
 
 const DoctorInfo = ({ doctor }) => {
