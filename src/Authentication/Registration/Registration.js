@@ -4,11 +4,12 @@ import Footer from '../../Components/Footer/Footer';
 import Header from '../../Components/Header/Header';
 import useAuth from '../Hooks/useAuth';
 import './Registration.css';
+import image from '../../images/auth.png';
 import { useLocation, useHistory } from 'react-router-dom';
 
 const Registration = () => {
 
-    // session storage 
+    // local storage 
     const [user, setUser] = useState({});
 
     const [signupData, setSignupData] = useState({});
@@ -58,7 +59,7 @@ const Registration = () => {
                 const user = result.user;
                 saveUser(user.email, user.displayName, 'PUT');
 
-                //session storage
+                //local storage
                 setUser(result.user);
                 localStorage.setItem("email", result.user.email);
                 // console.log(result.user);
@@ -72,13 +73,13 @@ const Registration = () => {
             <div class="mt-5 container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
                 <div class="card card0 border-0">
                     <div class="row d-flex">
-                        <div class="col-lg-6">
+                        <div class=" col-md-6 d-flex justify-content- center align-items- center">
                             <div class="card1 pb-5">
-                                <div class="row"> <img src="https://i.imgur.com/CXQmsmF.png" class="logo" alt='icon' /> </div>
-                                <div class="row px-3 justify-content-center mt-4 mb-5 border-line"> <img src="https://i.imgur.com/uNGdWHi.png" class="image" alt='icon' /> </div>
+
+                                <div class="row px-3 mt-4 mb-5 border-line"> <img src={image} class="image" alt='icon' /> </div>
                             </div>
                         </div>
-                        <div class="col-lg-6">
+                        <div class=" col-md-6">
                             <div class="card2 card border-0 px-4 py-5">
                                 <div>
 

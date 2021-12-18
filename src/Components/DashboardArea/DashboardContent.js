@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Switch, Route, useRouteMatch } from "react-router-dom";
 import DashboardAdmin from './AdminArea/DashboardAdmin';
 import ManagePatients from './AdminArea/Patients/ManagePatients';
@@ -16,8 +16,8 @@ import SendPrescription from './AdminArea/SendPrescription';
 
 
 const DashboardContent = () => {
-    let { path } = useRouteMatch();
 
+    let { path } = useRouteMatch();
 
     return (
         <div>
@@ -31,7 +31,7 @@ const DashboardContent = () => {
                     <Appointment />
                 </Route>
 
-                <Route path={`${path}/patients`}>
+                <Route path={`${path}/manage-patients`}>
                     <ManagePatients />
                 </Route>
 
@@ -51,7 +51,7 @@ const DashboardContent = () => {
                     <SendMeetLink />
                 </Route>
 
-                <Route path={`${path}/prescription/:prescriptionId`}>
+                <Route path={`${path}/prescription/:id`}>
                     <SendPrescription />
                 </Route>
 

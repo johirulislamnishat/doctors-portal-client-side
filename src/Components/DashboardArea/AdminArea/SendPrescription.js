@@ -5,17 +5,17 @@ import { useParams } from 'react-router-dom';
 const SendPrescription = () => {
 
     const [prescription, setPrescription] = useState({})
-    // const { prescriptions } = prescription;
+    const { prescriptions } = prescription;
 
-    const { prescriptionId } = useParams();
+    const { id } = useParams();
 
     useEffect(() => {
-        const url = `http://localhost:5000/prescription/${prescriptionId}`
+        const url = `http://localhost:5000/prescription/${id}`
         fetch(url)
             .then(res => res.json())
-            .then(data => console.log(data))
-        // .then(data => setPrescription(data))
-    }, [])
+            // .then(data => console.log(data))
+            .then(data => setPrescription(data))
+    }, [id])
 
     const handleLinkChange = e => {
         const updatePrescription = e.target.value;
@@ -26,7 +26,7 @@ const SendPrescription = () => {
 
     const handlePrescriptionSubmit = e => {
         e.preventDefault();
-        const url = `http://localhost:5000/prescription/${prescriptionId}`
+        const url = `http://localhost:5000/prescription/${id}`
 
         fetch(url, {
             method: 'PUT',
@@ -49,15 +49,15 @@ const SendPrescription = () => {
     return (
         <div>
             <div class="form-box">
-                <h1>Write And Send Prescription {prescriptionId}</h1>
+                <h1>Write And Send Prescription</h1>
 
                 <form className='mt-5' onSubmit={handlePrescriptionSubmit}>
                     <div class="form-group">
                         <label>Prescription</label>
-                        <input
+                        <textarea
 
                             onChange={handleLinkChange}
-                            value={'prescriptions' || ''}
+                            value={prescriptions || ''}
                             type="text" required
                             placeholder="Write Prescription"
                             class="form-control" />

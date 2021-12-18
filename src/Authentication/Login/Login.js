@@ -3,7 +3,8 @@ import { Link, useLocation, useHistory } from 'react-router-dom';
 import Footer from '../../Components/Footer/Footer';
 import Header from '../../Components/Header/Header';
 import useAuth from '../Hooks/useAuth';
-import './Login.css'
+import image from '../../images/auth.png';
+import './Login.css';
 
 const Login = () => {
 
@@ -11,7 +12,7 @@ const Login = () => {
     const [loginData, setLoginData] = useState({});
     const { authError, isLoading, signInUsingEmail, signInUsingGoogle, saveUser } = useAuth();
 
-    // session storage 
+    // local storage 
     const [user, setUser] = useState({});
 
     const location = useLocation();
@@ -32,7 +33,7 @@ const Login = () => {
         //redirect
         history.push(redirect_uri);
         // console.log(loginData.email);
-        //session storage
+        //local storage
         setUser(loginData.email);
         localStorage.setItem("email", loginData.email);
 
@@ -50,7 +51,7 @@ const Login = () => {
                 const user = result.user;
                 saveUser(user.email, user.displayName, 'PUT');
 
-                //session storage
+                //local storage
                 setUser(result.user);
                 localStorage.setItem("email", result.user.email);
                 // console.log(result.user);
@@ -64,10 +65,10 @@ const Login = () => {
             <div class="mt-5 container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
                 <div class="card card0 border-0">
                     <div class="row d-flex">
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 d-flex justify-content- center align-items- center">
                             <div class="card1 pb-5">
-                                <div class="row"> <img src="https://i.imgur.com/CXQmsmF.png" class="logo" alt='icon' /> </div>
-                                <div class="row px-3 justify-content-center mt-4 mb-5 border-line"> <img src="https://i.imgur.com/uNGdWHi.png" class="image" alt='icon' /> </div>
+
+                                <div class="row px-3 mt-4 mb-5 border-line"> <img src={image} class="image" alt='icon' /> </div>
                             </div>
                         </div>
                         <div class="col-lg-6">

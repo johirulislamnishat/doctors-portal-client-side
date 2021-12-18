@@ -7,7 +7,7 @@ import Sneackbar from '../../Sneackbar';
 
 const BookingModal = ({ date, open, handleClose, appointment }) => {
 
-    const { img, name, category, price, hospital } = appointment;
+    const { img, name, category, price, hospital, phone, education, designation } = appointment;
     const [openSneackBar, setOpenSneackBar] = useState(false);
     const [bookingInfo, setBookingInfo] = useState();
     const email = localStorage.getItem('email');
@@ -22,10 +22,13 @@ const BookingModal = ({ date, open, handleClose, appointment }) => {
             category,
             price,
             hospital,
+            phone,
+            education,
+            designation,
             date: date.toLocaleDateString(),
             email,
             meetingLink: 'Please Wait For Link',
-            prescriptions: 'Write Prescription',
+            prescriptions: 'Writing ',
 
         }
 
@@ -63,13 +66,6 @@ const BookingModal = ({ date, open, handleClose, appointment }) => {
         p: 4,
     };
 
-    //currency 
-    // const [currency, setCurrency] = useState('EUR');
-
-    // const handleInputChange = (event) => {
-    //     setCurrency(event.target.value);
-    // };
-
 
     //POST INFO
     const handleOnBlur = e => {
@@ -79,10 +75,6 @@ const BookingModal = ({ date, open, handleClose, appointment }) => {
         newInfo[field] = value;
         setBookingInfo(newInfo);
     }
-
-    // const initialBookingInfo={patient_name:user.displayName,patient_number:'', patient_email:user.email,patient_currency:''  }
-
-
     return (
         <>
             <Modal
@@ -196,6 +188,16 @@ const BookingModal = ({ date, open, handleClose, appointment }) => {
                             placeholder='Enter Your Weight'
                             sx={{ width: '100%', mb: 2 }}
                             label="Weight"
+                        />
+
+                        <TextField
+                            onBlur={handleOnBlur}
+                            name='patient_gender'
+                            id="outlined-disabled"
+                            type='text'
+                            placeholder='Write Your Gender Male/Female'
+                            sx={{ width: '100%', mb: 2 }}
+                            label="Gender"
                         />
 
                         <TextField

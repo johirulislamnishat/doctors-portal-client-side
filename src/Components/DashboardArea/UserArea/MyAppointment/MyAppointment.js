@@ -8,6 +8,7 @@ import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import useAuth from '../../../../Authentication/Hooks/useAuth';
 import MyAppointmentData from './MyAppointmentData';
+import Calendar from '../../../Appointment/Calendar/Calendar';
 
 const columns = [
 
@@ -26,6 +27,8 @@ const columns = [
 ];
 
 const MyAppointment = () => {
+
+    // const [date, setDate] = useState(new Date());
 
     const { user } = useAuth();
     // console.log(user);
@@ -71,6 +74,11 @@ const MyAppointment = () => {
                     :
                     (
                         <Paper sx={{ width: '100%', overflow: 'hidden' }}>
+
+                            {/* <div><Calendar
+                                date={date}
+                                setDate={setDate}
+                            ></Calendar></div> */}
 
                             <TableContainer sx={{ maxHeight: 550 }}>
                                 <Table stickyHeader aria-label="sticky table">

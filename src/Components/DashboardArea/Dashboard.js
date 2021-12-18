@@ -155,8 +155,8 @@ function Dashboard() {
                     </ListItem>
 
                     <ListItem button>
-                        <Link to={`${url}/patients`}>
-                            <FontAwesomeIcon style={{ width: 17, marginRight: 5 }} icon={faUsers} /> <span>Patients</span>
+                        <Link to={`${url}/manage-patients`}>
+                            <FontAwesomeIcon style={{ width: 17, marginRight: 5 }} icon={faUsers} /> <span>Manage Patients</span>
                         </Link>
                     </ListItem>
 

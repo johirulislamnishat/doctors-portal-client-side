@@ -6,7 +6,7 @@ import BookingModal from '../BookingModal/BookingModal';
 
 const Booking = ({ appointment, date }) => {
 
-    const { img, category, name, education, designation, department, hospital, price } = appointment;
+    const { img, category, name, designation, department, hospital, price } = appointment;
 
     //modal
     const [open, setOpen] = useState(false);

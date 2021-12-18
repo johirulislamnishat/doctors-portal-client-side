@@ -114,6 +114,16 @@ const AddDoctor = () => {
                             required={true}
                         />
                     </div>
+                    <div className="form-group col-6">
+                        <label htmlFor="exampleInputPassword1">Time</label>
+                        <input
+                            {...register("time")}
+                            type="text"
+                            className="form-control"
+                            placeholder="Enter Time"
+                            required={true}
+                        />
+                    </div>
 
                     <div className="form-group col-6">
                         <label htmlFor="exampleInputPassword1">Price</label>
