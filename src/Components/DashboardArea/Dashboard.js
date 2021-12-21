@@ -118,7 +118,7 @@ function Item(props) {
 }
 
 function Dashboard() {
-    // const dummyCategories = ['Hokusai', 'Hiroshige', 'Utamaro', 'Kuniyoshi', 'Yoshitoshi']
+
 
     const { user, logOut } = useAuth();
     let { url } = useRouteMatch();
@@ -133,7 +133,7 @@ function Dashboard() {
     const { admin } = useAuth();
 
     const drawer = (
-        <div>
+        <div >
             <div>
 
                 {/* admin menu */}
@@ -141,39 +141,39 @@ function Dashboard() {
                 {/* {
                     admin ? ( */}
 
-                <List style={{ fontSize: 16, marginTop: 10 }}>
+                <List style={{ fontSize: 16, fontWeight: 600, marginTop: 10, }}>
                     <ListItem button>
-                        <Link to={`${url}/admin-dashboard`}>
-                            <FontAwesomeIcon style={{ width: 17, marginRight: 5 }} icon={faGripHorizontal} /> <span>Dashboard</span>
+                        <Link className='nav-items' to={`${url}/admin-dashboard`}>
+                            <FontAwesomeIcon style={{ width: 17, marginRight: 5, }} icon={faGripHorizontal} /> <span>Dashboard</span>
                         </Link>
                     </ListItem>
 
                     <ListItem button>
-                        <Link to={`${url}/appointments`} >
+                        <Link className='nav-items' to={`${url}/appointments`} >
                             <FontAwesomeIcon style={{ width: 17, marginRight: 5 }} icon={faCalendar} /> <span>Appointment</span>
                         </Link>
                     </ListItem>
 
                     <ListItem button>
-                        <Link to={`${url}/manage-patients`}>
+                        <Link className='nav-items' to={`${url}/manage-patients`}>
                             <FontAwesomeIcon style={{ width: 17, marginRight: 5 }} icon={faUsers} /> <span>Manage Patients</span>
                         </Link>
                     </ListItem>
 
                     <ListItem button>
-                        <Link to={`${url}/add-doctors`}>
+                        <Link className='nav-items' to={`${url}/add-doctors`}>
                             <FontAwesomeIcon style={{ width: 17, marginRight: 5 }} icon={faUserPlus} /> <span>Add Doctor</span>
                         </Link>
                     </ListItem>
 
-                    <ListItem button>
-                        <Link to={`${url}/manage-doctors`}>
+                    <ListItem className='nav-items' button>
+                        <Link className='nav-items' to={`${url}/manage-doctors`}>
                             <FontAwesomeIcon style={{ width: 17, marginRight: 5 }} icon={faArtstation} /> <span>Manage Doctors</span>
                         </Link>
                     </ListItem>
 
-                    <ListItem button>
-                        <Link to={`${url}/add-new-admin`}>
+                    <ListItem className='nav-items' button>
+                        <Link className='nav-items' to={`${url}/add-new-admin`}>
                             <FontAwesomeIcon style={{ width: 17, marginRight: 5 }} icon={faUserPlus} /> <span>Add New Admin</span>
                         </Link>
                     </ListItem>
@@ -187,15 +187,15 @@ function Dashboard() {
 
 
 
-                <List style={{ fontSize: 16, marginTop: 10 }}>
+                <List style={{ fontSize: 16, fontWeight: 600, marginTop: 10 }}>
                     <ListItem button>
-                        <Link to={`${url}/dashboard`}>
+                        <Link className='nav-items' to={`${url}/dashboard`}>
                             <FontAwesomeIcon style={{ width: 17, marginRight: 5 }} icon={faGripHorizontal} /> <span>Dashboard</span>
                         </Link>
                     </ListItem>
 
                     <ListItem button>
-                        <Link to={`${url}/my-appointment`} >
+                        <Link className='nav-items' to={`${url}/my-appointment`} >
                             <FontAwesomeIcon style={{ width: 17, marginRight: 5 }} icon={faCalendar} /> <span>My Appointment</span>
                         </Link>
                     </ListItem>
@@ -207,7 +207,7 @@ function Dashboard() {
                     </ListItem> */}
 
                     <ListItem button>
-                        <Link to={`${url}/review`}>
+                        <Link className='nav-items' to={`${url}/review`}>
                             <FontAwesomeIcon style={{ width: 17, marginRight: 5 }} icon={faFileAlt} /> <span>Add Review</span>
                         </Link>
                     </ListItem>
@@ -218,8 +218,8 @@ function Dashboard() {
             </div>
 
             <div>
-                <ListItem button style={{ fontSize: 16, marginTop: 10 }}>
-                    <Link onClick={logOut} to="/">
+                <ListItem button style={{ fontSize: 16, fontWeight: 600, marginTop: 10 }}>
+                    <Link className='nav-items' onClick={logOut} to="/">
                         <FontAwesomeIcon style={{ width: 17, marginRight: 5 }} icon={faSignOutAlt} /> <span>Logout</span>
                     </Link>
                 </ListItem>

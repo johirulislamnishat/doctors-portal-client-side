@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import logo from '../../../images/logo.png';
 
-const MyPrescriptions = ({ open, handleClose, appointment }) => {
+const MyPrescriptions = ({ presOpen, handlePresClose, appointment }) => {
 
     const { patient_name, patient_number, patient_email, patient_age, patient_weight, patient_address, patient_gender, name, category, hospital, education, designation, prescriptions } = appointment;
 
@@ -24,8 +24,8 @@ const MyPrescriptions = ({ open, handleClose, appointment }) => {
         <>
 
             <Modal
-                open={open}
-                onClose={handleClose}
+                open={presOpen}
+                onClose={handlePresClose}
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
             >

@@ -7,10 +7,15 @@ import MyPrescriptions from '../MyPrescriptions';
 
 const MyAppointmentData = ({ appointment }) => {
 
-    //modal
+    //modal meeting
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+
+    //modal prescription
+    const [presOpen, setPresOpen] = useState(false);
+    const handlePresOpen = () => setPresOpen(true);
+    const handlePresClose = () => setPresOpen(false);
 
     const [deleteAppointment, setDeleteAppointment] = useState([]);
 
@@ -55,7 +60,7 @@ const MyAppointmentData = ({ appointment }) => {
 
                 {/* prescription */}
                 <TableCell>
-                    <input onClick={handleOpen} class="btn btn-primary my-2" type="submit" value="View" />
+                    <input onClick={handlePresOpen} class="btn btn-primary my-2" type="submit" value="View" />
                 </TableCell>
                 {/* <TableCell>
                     <Link style={{ fontSize: 17 }} to={`/dashboard/prescription/${appointment._id}`}> View </Link>
@@ -75,8 +80,8 @@ const MyAppointmentData = ({ appointment }) => {
 
             <MyPrescriptions
 
-                open={open}
-                handleClose={handleClose}
+                presOpen={presOpen}
+                handlePresClose={handlePresClose}
                 appointment={appointment}
             ></MyPrescriptions>
 

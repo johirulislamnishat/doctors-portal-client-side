@@ -9,13 +9,17 @@ import React, { useEffect, useState } from 'react';
 import PatientInfo from './PatientInfo';
 
 const columns = [
+    { id: 'id', label: 'ID', minWidth: 40, },
+    { id: 'doctorName', label: 'Doctor Name', minWidth: 170, },
     { id: 'user', label: 'Patient Name', minWidth: 170, },
-    { id: 'age', label: 'Age', minWidth: 40, },
-    { id: 'weight', label: 'Weight', minWidth: 40, },
-    { id: 'phone', label: 'Phone Number', minWidth: 100, },
+    { id: 'age', label: 'Age', minWidth: 60, },
+    { id: 'weight', label: 'Weight', minWidth: 60, },
+    { id: 'phone', label: 'Phone Number', minWidth: 150, },
     { id: 'email', label: 'Email', minWidth: 150, },
     { id: 'location', label: 'Location', minWidth: 150, },
-    { id: 'meetlink', label: 'MeetLink', minWidth: 150, },
+    { id: 'status', label: 'Status', minWidth: 50, },
+    { id: 'payment', label: 'Payment', minWidth: 80, },
+    { id: 'meetlink', label: 'MeetLink', minWidth: 180, },
     { id: 'prescription', label: 'Prescription', minWidth: 180, },
     // { id: 'status', label: 'Status', },
     { id: 'action', label: 'Action', }
@@ -50,13 +54,13 @@ const ManagePatients = () => {
             .then(data => setPatients(data))
     }, [])
 
-    const [users, setUsers] = useState([]);
+    // const [users, setUsers] = useState([]);
 
-    useEffect(() => {
-        fetch('http://localhost:5000/users')
-            .then(res => res.json())
-            .then(data => setUsers(data))
-    }, [])
+    // useEffect(() => {
+    //     fetch('http://localhost:5000/users')
+    //         .then(res => res.json())
+    //         .then(data => setUsers(data))
+    // }, [])
 
 
 
@@ -64,8 +68,11 @@ const ManagePatients = () => {
 
         <>
 
+            <div className='table-name'>Patient Activity Management</div>
+
             <Paper sx={{ width: '100%', overflow: 'hidden' }}>
                 <TableContainer sx={{ maxHeight: 550 }}>
+
                     <Table stickyHeader aria-label="sticky table">
                         <TableHead>
                             <TableRow>
@@ -73,7 +80,10 @@ const ManagePatients = () => {
                                     <TableCell
                                         key={column.id}
                                         align={column.align}
-                                        style={{ minWidth: column.minWidth }}
+                                        style={{
+                                            fontSize: '14px', textTransform: 'uppercase',
+                                            fontWeight: '600', backgroundColor: '#0dc276', color: '#fff', minWidth: column.minWidth
+                                        }}
                                     >
                                         {column.label}
                                     </TableCell>
@@ -99,7 +109,7 @@ const ManagePatients = () => {
                 <TablePagination
                     rowsPerPageOptions={[10, 25, 100]}
                     component="div"
-                    count={users.length}
+                    count={patients.length}
                     rowsPerPage={rowsPerPage}
                     page={page}
                     onPageChange={handleChangePage}

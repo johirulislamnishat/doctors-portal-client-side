@@ -35,7 +35,7 @@ const AddAdmin = () => {
     return (
         <div>
             <div class="form-box">
-                <h1>Add A New Admin</h1>
+                <h1 className='table-name'>Add A New Admin</h1>
 
                 <form className='mt-5' onSubmit={handleSubmit(onSubmit)}>
                     <div class="form-group">
@@ -48,7 +48,7 @@ const AddAdmin = () => {
                         {errors.exampleRequired && <span>This field is required</span>}
                     </div>
 
-                    <input class="btn btn-primary" type="submit" value="Submit" />
+                    <input class="btn btn-secondary mt-3" type="submit" value="Submit" />
                 </form>
             </div>
         </div>

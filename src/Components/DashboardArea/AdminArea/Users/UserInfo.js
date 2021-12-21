@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 
 const UserInfo = ({ user }) => {
 
-    const { photoUrl, displayName, _id, email, role } = user;
+    const { displayName, _id, email, role } = user;
 
 
     //Delete User
@@ -32,13 +32,12 @@ const UserInfo = ({ user }) => {
     return (
         <TableRow hover role="checkbox" tabIndex={-1}>
 
-            <TableCell >
-                <img style={{ height: 40, width: 40 }} className='rounded-circle mr-2' src={photoUrl} alt={displayName} />
-                {displayName}
+            <TableCell className='user-name'>
+                {_id.slice(2, 8)}
             </TableCell>
 
-            <TableCell >
-                {_id.slice(0, 10)}
+            <TableCell className='user-name'>
+                {displayName}
             </TableCell>
 
             <TableCell >

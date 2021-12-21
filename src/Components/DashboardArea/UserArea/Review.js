@@ -20,9 +20,9 @@ const Review = () => {
     return (
         <>
             <div class="form-box">
-                <h1>Submit A Review</h1>
+                <h1 className='table-name'>Submit A Review</h1>
 
-                <form className='mt-5' onSubmit={handleSubmit(onSubmit)}>
+                <form className='mt-2' onSubmit={handleSubmit(onSubmit)}>
                     <div class="form-group">
                         <label>Image</label>
                         <input
@@ -59,7 +59,7 @@ const Review = () => {
                     </div>
 
 
-                    <input class="btn btn-primary" type="submit" value="Submit" />
+                    <input class="btn btn-secondary mt-3" type="submit" value="Submit" />
                 </form>
             </div>
 

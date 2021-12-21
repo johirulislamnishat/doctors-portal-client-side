@@ -48,7 +48,7 @@ const DashboardUser = () => {
             <Grid container spacing={{ xs: 2, md: 4 }} columns={{ xs: 4, sm: 8, md: 12 }}>
 
                 {/* patient's appointment */}
-                <Grid item xs={1} sm={2} md={3}>
+                <Grid item xs={4} sm={4} md={3}>
                     <div style={{ height: 100, width: '100%', backgroundColor: '#f1536e', display: 'flex' }} className='rounded shadow-lg'>
                         <div style={{ textAlign: 'center', display: 'flex', fontSize: 26, color: 'white', justifyContent: 'center', width: '100%', alignItems: 'center' }} className='mx-auto '>
 
@@ -68,7 +68,7 @@ const DashboardUser = () => {
                 </Grid>
 
                 {/* total doctors */}
-                <Grid item xs={1} sm={2} md={3}>
+                <Grid item xs={4} sm={4} md={3}>
                     <div style={{ height: 100, width: '100%', backgroundColor: '#00c689', display: 'flex', padding: 4 }} className='rounded shadow-lg'>
                         <div style={{ textAlign: 'center', display: 'flex', fontSize: 26, color: 'white', justifyContent: 'center', width: '100%', alignItems: 'center' }} className='mx-auto '>
 
@@ -88,7 +88,7 @@ const DashboardUser = () => {
                 </Grid>
 
                 {/* total users */}
-                <Grid item xs={1} sm={2} md={3}>
+                <Grid item xs={4} sm={4} md={3}>
                     <div style={{ height: 100, width: '100%', backgroundColor: '#3da5f4', display: 'flex', padding: 4 }} className='rounded shadow-lg'>
                         <div style={{ textAlign: 'center', display: 'flex', fontSize: 26, color: 'white', justifyContent: 'center', width: '100%', alignItems: 'center' }} className='mx-auto '>
 
@@ -107,7 +107,7 @@ const DashboardUser = () => {
                     </div>
                 </Grid>
 
-                <Grid item xs={1} sm={2} md={3}>
+                <Grid item xs={4} sm={4} md={3}>
                     <div style={{ height: 100, width: '100%', backgroundColor: '#fda006', display: 'flex', padding: 4 }} className='rounded shadow-lg'>
                         <div style={{ textAlign: 'center', display: 'flex', fontSize: 26, color: 'white', justifyContent: 'center', width: '100%', alignItems: 'center' }} className='mx-auto '>
 

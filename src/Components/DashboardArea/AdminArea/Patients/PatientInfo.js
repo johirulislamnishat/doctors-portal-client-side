@@ -36,8 +36,15 @@ const PatientInfo = ({ patient }) => {
 
             <TableRow hover role="checkbox" tabIndex={-1}>
 
+                <TableCell className='user-name'>
+                    {patient._id.slice(2, 8)}
+                </TableCell>
+
                 <TableCell >
-                    {/* {row.img}  */}
+                    {patient.name}
+                </TableCell>
+
+                <TableCell >
                     {patient.patient_name}
                 </TableCell>
 
@@ -46,7 +53,7 @@ const PatientInfo = ({ patient }) => {
                 </TableCell>
 
                 <TableCell >
-                    {patient.patient_weight}
+                    {patient.patient_weight} KG
                 </TableCell>
 
                 <TableCell> {patient.patient_number} </TableCell>
@@ -55,20 +62,20 @@ const PatientInfo = ({ patient }) => {
 
                 <TableCell> {patient.patient_address} </TableCell>
 
+                {/* status */}
+                <TableCell> {patient.status} </TableCell>
+
+                {/* payment */}
+                <TableCell> {patient.payment ? <div className='btn-secondary'>Paid</div> : <div className='text-alert'>Not Paid</div>} </TableCell>
+
                 {/* meetlink */}
                 <TableCell>
-                    <Link to={`/dashboard/meetlink/${patient._id}`} className='btn-secondary px-3 py-2 rounded-pill' >Send Link</Link>
+                    <Link to={`/dashboard/meetlink/${patient._id}`} className='btn-secondary' >Send Link</Link>
                 </TableCell>
 
                 {/* prescription */}
                 <TableCell>
-                    <Link to={`/dashboard/prescription/${patient._id}`} className='btn-secondary px-3 py-2 rounded-pill' >Send Rx</Link>
-                </TableCell>
-
-                {/*  */}
-                <TableCell>
-                    <Link to={`/dashboard/prescription/${patient._id}`} className='btn-secondary px-3 py-2 rounded-pill'></Link>
-
+                    <Link to={`/dashboard/prescription/${patient._id}`} className='btn-secondary' >Send Rx</Link>
                 </TableCell>
 
                 {/* <TableCell> {<Box sx={{ minWidth: 120 }}>

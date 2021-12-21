@@ -10,10 +10,10 @@ import UserInfo from './UserInfo';
 
 
 const columns = [
-    { id: 'displayName', label: 'User Name', minWidth: 180, },
-    { id: 'id', label: 'User ID', minWidth: 180, },
-    { id: 'email', label: 'User Email', minWidth: 180, },
-    { id: 'role', label: 'User Role', minWidth: 180, },
+    { id: 'id', label: 'ID', width: 70 },
+    { id: 'displayName', label: 'User Name', minWidth: 120, },
+    { id: 'email', label: 'User Email', minWidth: 130, },
+    { id: 'role', label: 'User Role', minWidth: 80, },
     { id: 'action', label: 'Action', }
 
 ];
@@ -49,13 +49,16 @@ const ManageUsers = () => {
         <Paper sx={{ width: '100%', overflow: 'hidden' }}>
             <TableContainer sx={{ maxHeight: 550 }}>
                 <Table stickyHeader aria-label="sticky table">
-                    <TableHead>
+                    <TableHead >
                         <TableRow>
                             {columns.map((column) => (
                                 <TableCell
                                     key={column.id}
                                     align={column.align}
-                                    style={{ minWidth: column.minWidth }}
+                                    style={{
+                                        fontSize: '14px', textTransform: 'uppercase',
+                                        fontWeight: '600', backgroundColor: '#0dc276', color: '#fff', minWidth: column.minWidth
+                                    }}
                                 >
                                     {column.label}
                                 </TableCell>
