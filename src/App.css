@@ -50,7 +50,7 @@ a:hover {
 	padding-left: 35px;
 }
 .text-primary {
-	color: #1cc7c1 !important;
+	color: #0092db !important;
 }
 
 .text-alert{
@@ -107,28 +107,18 @@ p {
 	font-size: 22px;
 }
 
-.heder-content {
-	height: 100vh;
-	position: relative;
-}
-
-.heder-content::after {
-	z-index: -50;
-	height: 100vh;
-	content: ' ';
-	position: absolute;
-	top: 0;
-	width: 33%;
-	right: 0;
-	background-color: #3a4256;
-}
-
 .table-name{
 	color: #0dc276;
 	font-size: 18px;
 	font-weight: 600;
 	padding-top: 15px;
 	padding-bottom: 30px;
+}
+
+.success-text{
+	color: #0dc276;
+	font-size: 17px;
+	font-weight: 600;
 }
 
 .nav-items{
@@ -149,23 +139,26 @@ p {
 
 .user-name{
 	text-transform: uppercase;
-
 }
 
 @media (max-width: 777px) {
-	.heder-content::after {
-		background-color: transparent;
-	}
+	
 	.navbar-light .navbar-nav .nav-link {
-		color: rgba(0, 0, 0, .5) !important;
+		color: #020b24 !important;
 	}
 	.features-service h1 {
 		font-size: 25px;
 	}
 }
 
+#top-header{
+		padding: 10px;
+		box-shadow: 0 1px #88888850;
+	  
+}
+
 .text-gray {
-	color: rgba(255, 255, 255, 0.75) !important;
+	color: #020b24 !important;
 }
 
 .reviewForm input,

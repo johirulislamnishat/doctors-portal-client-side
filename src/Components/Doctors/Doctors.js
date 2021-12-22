@@ -1,8 +1,9 @@
+import { Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import SwiperCore, { A11y, Autoplay, Navigation, Pagination, Scrollbar, Virtual } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.min.css';
-import Doctor from '../Doctor/Doctor';
+import Doctor from './Doctor';
 import './Doctors.css';
 
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Autoplay, Virtual]);
@@ -21,10 +22,16 @@ const Doctors = () => {
     }, [])
 
     return (
-        <section className="doctors">
+        <div className="doctors">
             <div className="container my-5">
-                <h1 className="text-center text-primary my-5">Our Doctors</h1>
-                <div className="doctors-view">
+                <Typography className='text-primary' sx={{ mb: 2, mt: 2, textAlign: 'center' }} variant="h6" component="div">
+                    APPOINTMENTS
+                </Typography>
+                <Typography sx={{ textAlign: 'center' }} variant="h4" component="div">
+                    Book Available Appointment
+                </Typography>
+
+                <div className="doctors-view mt-5">
                     <Swiper
                         spaceBetween={20}
                         slidesPerView={3}
@@ -41,7 +48,7 @@ const Doctors = () => {
                     </Swiper>
                 </div>
             </div>
-        </section>
+        </div>
     );
 };
 

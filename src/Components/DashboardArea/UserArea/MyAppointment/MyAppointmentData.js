@@ -42,25 +42,27 @@ const MyAppointmentData = ({ appointment }) => {
     return (
         <>
             <TableRow hover role="checkbox" tabIndex={-1}>
-
+                <TableCell className='user-name'>
+                    {appointment._id.slice(2, 8)}
+                </TableCell>
                 <TableCell >{appointment.patient_name}</TableCell>                                   <TableCell >{appointment.name}</TableCell>
                 <TableCell >{appointment.category}</TableCell>
                 <TableCell> {appointment.date} </TableCell>
                 <TableCell> {appointment.time} </TableCell>
-                <TableCell> {appointment.hospital} </TableCell>
+
                 {/* <TableCell style={{ fontSize: 17 }}> {appointment.status} </TableCell> */}
-                <TableCell> {appointment.payment ? <div style={{ fontSize: 17 }}>Paid</div> : (
-                    <Link style={{ fontSize: 17 }} to={`/dashboard/payment/${appointment._id}`}> Pay Now </Link>
+                <TableCell> {appointment.payment ? <div className='success-text'>Paid</div> : (
+                    <Link className='text-alert' to={`/dashboard/payment/${appointment._id}`}> Pay Now </Link>
                 )} </TableCell>
 
                 {/* meetlink */}
                 <TableCell>
-                    <input onClick={handleOpen} class="btn btn-primary my-2" type="submit" value="Get Link" />
+                    <input onClick={handleOpen} class="btn btn-secondary my-2" type="submit" value="Get Link" />
                 </TableCell>
 
                 {/* prescription */}
                 <TableCell>
-                    <input onClick={handlePresOpen} class="btn btn-primary my-2" type="submit" value="View" />
+                    <input onClick={handlePresOpen} class="btn btn-secondary my-2" type="submit" value="View" />
                 </TableCell>
                 {/* <TableCell>
                     <Link style={{ fontSize: 17 }} to={`/dashboard/prescription/${appointment._id}`}> View </Link>

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import Banner from '../Banner/Banner';
+import Banner from '../Home/Banner/Banner';
 import FeaturedService from '../FeaturedService/FeaturedService';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';

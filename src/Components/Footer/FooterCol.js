@@ -8,7 +8,7 @@ const FooterCol = (props) => {
 			<ul className="list-unstyled mt-4">
 				{props.menuItems.map((item) => (
 					<li>
-						<Link to={item.link} className="text-secondary">
+						<Link to={item.link} className="text-secondary text-gray">
 							{item.name}
 						</Link>
 					</li>

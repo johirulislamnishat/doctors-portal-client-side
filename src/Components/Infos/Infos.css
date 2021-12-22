@@ -1,7 +1,9 @@
-.infos{
-    position: relative;
-    top: -100px;
-}
+@media only screen  and (min-width : 1024px) {
+    .infos{
+        position: relative;
+        top: -100px;
+    }
+    }
 
 .infos .icon{
     font-size: 3em;

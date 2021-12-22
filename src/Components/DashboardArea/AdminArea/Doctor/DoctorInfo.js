@@ -5,7 +5,7 @@ import TableRow from '@mui/material/TableRow';
 
 const DoctorInfo = ({ doctor }) => {
 
-    const { img, name, phone, email, designation, department, education, hospital, price } = doctor;
+    const { _id, img, name, phone, email, designation, department, education, hospital, price } = doctor;
 
     //modal 
     const [open, setOpen] = React.useState(false);
@@ -37,6 +37,10 @@ const DoctorInfo = ({ doctor }) => {
     return (
         <>
             <TableRow hover role="checkbox" tabIndex={-1} >
+                <TableCell className='user-name'>
+                    {_id.slice(2, 8)}
+                </TableCell>
+
                 <TableCell >
 
                     <img className='rounded-circle' style={{ height: 40, width: 40, marginRight: 5 }} src={img} alt={name} />                                           {name}

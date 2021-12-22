@@ -2,10 +2,6 @@
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 import React, { useState } from 'react';
-// import Box from '@mui/material/Box';
-// import MenuItem from '@mui/material/MenuItem';
-// import FormControl from '@mui/material/FormControl';
-// import Select from '@mui/material/Select';
 import { Link } from 'react-router-dom';
 
 const PatientInfo = ({ patient }) => {
@@ -66,7 +62,7 @@ const PatientInfo = ({ patient }) => {
                 <TableCell> {patient.status} </TableCell>
 
                 {/* payment */}
-                <TableCell> {patient.payment ? <div className='btn-secondary'>Paid</div> : <div className='text-alert'>Not Paid</div>} </TableCell>
+                <TableCell> {patient.payment ? <div className='success-text'>Paid</div> : <div className='text-alert'>Not Paid</div>} </TableCell>
 
                 {/* meetlink */}
                 <TableCell>

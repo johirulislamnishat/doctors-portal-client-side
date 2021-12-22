@@ -22,18 +22,18 @@ const Header = () => {
 		});
 	}, []);
 	return (
-		<nav
+		<nav id='top-header'
 			className={
 				isSticky || isCollapsed ? (
-					'slide in show shadow-sm navbar navbar-expand-sm bg-white navbar-light py-3  fixed-top'
+					'slide in show shadow-sm navbar navbar-expand-sm bg-white navbar-light py-3 fixed-top'
 				) : (
-					'slide out show navbar navbar-expand-sm navbar-light py-4 fixed-top '
+					'slide out show navbar navbar-expand-sm navbar-light py-4 fixed-top'
 				)
 			}
 		>
 			<div className="container">
 				<Link className="navbar-brand" to="/" style={{ color: '#15D1C8' }}>
-					<img src={logo} alt="logo" /><span className="logo-name"> Online Doctor's Portal </span>
+					<img src={logo} alt="logo" />
 				</Link>
 				<button
 					onClick={() => setCollapsed(!isCollapsed ? 'show' : null)}
@@ -55,12 +55,17 @@ const Header = () => {
 							</Link>
 						</li>
 						<li className="nav-item">
-							<Link className="nav-link" to="/appointment">
+							<Link className="nav-link text-gray" to="/appointment">
 								Make Appointment
 							</Link>
 						</li>
 						<li className="nav-item">
-							<Link className={`nav-link ${navStyle}`} to="/dashboard/dashboard">
+							<Link className="nav-link text-gray" to="/our-doctor">
+								Specialists
+							</Link>
+						</li>
+						<li className="nav-item">
+							<Link className="nav-link text-gray" to="/dashboard/dashboard">
 								Dashboard
 							</Link>
 						</li>
@@ -70,17 +75,17 @@ const Header = () => {
 							</Link>
 						</li> */}
 						<li className="nav-item">
-							<Link className={`nav-link ${navStyle}`} to="/contact">
+							<Link className="nav-link text-gray" to="/contact">
 								Contact Us
 							</Link>
 						</li>
 
 						{user?.email ? <li className="nav-item">
-							<Link onClick={logOut} className={`nav-link ${navStyle}`} to="/">
+							<Link onClick={logOut} className='btn btn-secondary ml-5' to="/">
 								Sign Out
 							</Link>
 						</li> : <li className="nav-item">
-							<Link className={`nav-link ${navStyle}`} to="/login">
+							<Link className='btn btn-secondary ml-5' to="/login">
 								Sign In
 							</Link>
 						</li>}

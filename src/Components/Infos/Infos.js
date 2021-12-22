@@ -6,15 +6,15 @@ const Infos = () => {
     return (
         <div className="infos">
             <div className="container">
-                <div class="row mt-5">
-                    
+                <div class="row mt-0 mt-md-5">
+
                     {
-                       infos.map(info => <InfoCard info={info}/> ) 
+                        infos.map(info => <InfoCard info={info} />)
                     }
-                    
+
                 </div>
             </div>
-            
+
         </div>
     );
 };

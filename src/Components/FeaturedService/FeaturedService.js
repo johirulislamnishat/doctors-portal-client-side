@@ -15,7 +15,7 @@ const FeaturedService = () => {
 							Bangladeshi registered doctors that you can trust.
 						</p>
 						<Link to="/registration">
-							<button className="btn btn-primary button-style mb-5">Sign Up</button>
+							<button className="btn btn-secondary button-style mb-5">Sign Up</button>
 						</Link>
 					</div>
 					<div className="col-md-5 mb-4">

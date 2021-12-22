@@ -47,7 +47,7 @@ const Doctor = ({ doctor }) => {
 				<h6 className="hospital">৳ {price}</h6>
 				<div className="text-center">
 					<Link to="/appointment">
-						<button className="btn btn-primary button-style mt-3">
+						<button className="btn btn-secondary button-style mt-3">
 							<FontAwesomeIcon icon={faCalendarCheck} className="mr-3" /> Book Appointment
 						</button>
 					</Link>

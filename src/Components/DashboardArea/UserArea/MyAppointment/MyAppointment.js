@@ -12,12 +12,12 @@ import Calendar from '../../../Appointment/Calendar/Calendar';
 
 const columns = [
 
+    { id: 'id', label: 'ID', minWidth: 50, },
     { id: 'patientName', label: 'Patient Name', minWidth: 150, },
     { id: 'doctorName', label: 'Doctor Name', minWidth: 150, },
     { id: 'category', label: 'Problem', minWidth: 80, },
     { id: 'date', label: 'Date', minWidth: 60, },
     { id: 'time', label: 'Time', minWidth: 60, },
-    { id: 'location', label: 'Location', minWidth: 100, },
     // { id: 'status', label: 'Status', minWidth: 50, },
     { id: 'payment', label: 'Payment', minWidth: 130, },
     { id: 'meetlink', label: 'Meetlink', minWidth: 50, },
@@ -73,54 +73,61 @@ const MyAppointment = () => {
                 )
                     :
                     (
-                        <Paper sx={{ width: '100%', overflow: 'hidden' }}>
+                        <>
+                            <div className='table-name'>My Appointment</div>
 
-                            {/* <div><Calendar
+                            <Paper sx={{ width: '100%', overflow: 'hidden' }}>
+
+                                {/* <div><Calendar
                                 date={date}
                                 setDate={setDate}
                             ></Calendar></div> */}
 
-                            <TableContainer sx={{ maxHeight: 550 }}>
-                                <Table stickyHeader aria-label="sticky table">
-                                    <TableHead>
-                                        <TableRow>
-                                            {columns.map((column) => (
-                                                <TableCell
-                                                    key={column.id}
-                                                    align={column.align}
-                                                    style={{ minWidth: column.minWidth }}
-                                                >
-                                                    {column.label}
-                                                </TableCell>
-                                            ))}
-                                        </TableRow>
-                                    </TableHead>
+                                <TableContainer sx={{ maxHeight: 550 }}>
+                                    <Table stickyHeader aria-label="sticky table">
+                                        <TableHead>
+                                            <TableRow>
+                                                {columns.map((column) => (
+                                                    <TableCell
+                                                        key={column.id}
+                                                        align={column.align}
+                                                        style={{
+                                                            fontSize: '14px', textTransform: 'uppercase',
+                                                            fontWeight: '600', backgroundColor: '#0dc276', color: '#fff', minWidth: column.minWidth
+                                                        }}
+                                                    >
+                                                        {column.label}
+                                                    </TableCell>
+                                                ))}
+                                            </TableRow>
+                                        </TableHead>
 
-                                    <TableBody>
-                                        {appointments
-                                            .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                                            .map((appointment) => {
-                                                return (
-                                                    <MyAppointmentData
-                                                        key={appointment.id}
-                                                        appointment={appointment}
-                                                    ></MyAppointmentData>
-                                                );
-                                            })}
-                                    </TableBody>
-                                </Table>
-                            </TableContainer>
+                                        <TableBody>
+                                            {appointments
+                                                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                                                .map((appointment) => {
+                                                    return (
+                                                        <MyAppointmentData
+                                                            key={appointment.id}
+                                                            appointment={appointment}
+                                                        ></MyAppointmentData>
+                                                    );
+                                                })}
+                                        </TableBody>
+                                    </Table>
+                                </TableContainer>
 
-                            <TablePagination
-                                rowsPerPageOptions={[10, 25, 100]}
-                                component="div"
-                                count={appointments.length}
-                                rowsPerPage={rowsPerPage}
-                                page={page}
-                                onPageChange={handleChangePage}
-                                onRowsPerPageChange={handleChangeRowsPerPage}
-                            />
-                        </Paper>)
+                                <TablePagination
+                                    rowsPerPageOptions={[10, 25, 100]}
+                                    component="div"
+                                    count={appointments.length}
+                                    rowsPerPage={rowsPerPage}
+                                    page={page}
+                                    onPageChange={handleChangePage}
+                                    onRowsPerPageChange={handleChangeRowsPerPage}
+                                />
+                            </Paper>
+                        </>)
             }
         </>
     );

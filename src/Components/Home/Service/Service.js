@@ -10,7 +10,7 @@ const Service = (props) => {
     const { name, description, image } = props.service;
 
     return (
-        <Card sx={{ minWidth: 275, boxShadow: 0, mt: 10 }}>
+        <Card sx={{ minWidth: 275, boxShadow: 0, mt: 6 }}>
             <CardContent>
                 <CardMedia
                     component="img"

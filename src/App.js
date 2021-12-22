@@ -11,6 +11,7 @@ import Contact from './Components/SinglePages/ContactUs';
 import Dashboard from './Components/DashboardArea/Dashboard';
 import AuthProvider from './Authentication/Context/AuthProvider';
 import PrivateRoute from './Authentication/PrivateRoute/PrivateRoute';
+import OurDoctor from './Components/DoctorsProfile/OurDoctor';
 
 function App() {
 
@@ -59,6 +60,10 @@ function App() {
 
             <Route path="/registration">
               <Registration />
+            </Route>
+
+            <Route path="/our-doctor">
+              <OurDoctor />
             </Route>
 
             <Route exact path="/*">

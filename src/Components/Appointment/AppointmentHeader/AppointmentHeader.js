@@ -2,7 +2,7 @@ import React from 'react';
 import { Typography } from '@mui/material';
 import Calendar from '../Calendar/Calendar';
 import BannerImg from '../../../images/chair.png';
-import '../../Banner/Banner.css';
+import '../../Home/Banner/Banner.css';
 
 const AppointmentHeader = ({ date, setDate }) => {
 

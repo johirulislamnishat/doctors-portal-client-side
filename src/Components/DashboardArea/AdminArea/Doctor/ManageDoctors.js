@@ -9,6 +9,7 @@ import React, { useEffect, useState } from 'react';
 import DoctorInfo from './DoctorInfo';
 const columns = [
 
+    { id: 'id', label: 'ID', minWidth: 50, },
     { id: 'doctorName', label: 'Doctor Name', minWidth: 250, },
     { id: 'phone', label: 'Phone Number', minWidth: 150, },
     { id: 'email', label: 'Email', minWidth: 150, },
@@ -51,6 +52,8 @@ const ManageDoctors = () => {
 
     return (
         <>
+
+            <div className='table-name'>Doctors Activity Management</div>
             <Paper sx={{ width: '100%', overflow: 'hidden' }}>
                 <TableContainer sx={{ maxHeight: 550 }}>
                     <Table stickyHeader aria-label="sticky table">
@@ -60,7 +63,10 @@ const ManageDoctors = () => {
                                     <TableCell
                                         key={column.id}
                                         align={column.align}
-                                        style={{ minWidth: column.minWidth }}
+                                        style={{
+                                            fontSize: '14px', textTransform: 'uppercase',
+                                            fontWeight: '600', backgroundColor: '#0dc276', color: '#fff', minWidth: column.minWidth
+                                        }}
                                     >
                                         {column.label}
                                     </TableCell>
