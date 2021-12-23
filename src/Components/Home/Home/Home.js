@@ -8,7 +8,7 @@ import Footer from '../../Footer/Footer';
 import Features from '../../Features/Features';
 import Testimonials from '../../Testimonials/Testimonials';
 import FeaturedService from '../../FeaturedService/FeaturedService';
-import Blogs from '../../Blogs/Blogs';
+import Blogs from '../HomeBlogs/Blogs';
 import Doctors from '../../Doctors/Doctors';
 import OurDoctors from '../../DoctorsProfile/OurDoctors';
 
