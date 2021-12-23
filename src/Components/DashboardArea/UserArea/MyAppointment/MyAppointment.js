@@ -19,7 +19,7 @@ const columns = [
     { id: 'date', label: 'Date', minWidth: 60, },
     { id: 'time', label: 'Time', minWidth: 60, },
     // { id: 'status', label: 'Status', minWidth: 50, },
-    { id: 'payment', label: 'Payment', minWidth: 130, },
+    { id: 'payment', label: 'Payment', minWidth: 150, },
     { id: 'meetlink', label: 'Meetlink', minWidth: 50, },
     { id: 'prescription', label: 'Prescription', minWidth: 50, },
     { id: 'delete', label: 'Delete', }

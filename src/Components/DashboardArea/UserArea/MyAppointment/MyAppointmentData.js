@@ -52,21 +52,22 @@ const MyAppointmentData = ({ appointment }) => {
 
                 {/* <TableCell style={{ fontSize: 17 }}> {appointment.status} </TableCell> */}
                 <TableCell> {appointment.payment ? <div className='success-text'>Paid</div> : (
-                    <Link className='text-alert' to={`/dashboard/payment/${appointment._id}`}> Pay Now </Link>
+                    <Link className='text-alert' to={`/dashboard/payment/${appointment._id}`}> <span className='tbl-btn-alert'>Pay Fast</span> </Link>
                 )} </TableCell>
 
                 {/* meetlink */}
                 <TableCell>
-                    <input onClick={handleOpen} class="btn btn-secondary my-2" type="submit" value="Get Link" />
+                    {
+                        appointment.meetingLink === 'Please Wait For Link' ? <div className='text-warning'>Please Wait</div> : <input onClick={handleOpen} class="btn tbl-btn-primary my-2" type="submit" value="Get Link" />
+                    }
                 </TableCell>
 
                 {/* prescription */}
                 <TableCell>
-                    <input onClick={handlePresOpen} class="btn btn-secondary my-2" type="submit" value="View" />
+                    {
+                        appointment.prescriptions === 'Writing ' ? <div className='text-warning'>Please Wait</div> : <input onClick={handlePresOpen} class="btn tbl-btn-primary my-2" type="submit" value="View" />
+                    }
                 </TableCell>
-                {/* <TableCell>
-                    <Link style={{ fontSize: 17 }} to={`/dashboard/prescription/${appointment._id}`}> View </Link>
-                </TableCell> */}
 
                 {/* delete button */}
                 <TableCell style={{ fontSize: 23 }} > <button className='bg-transparent border-0' onClick={() => handleDeleteAppointment(appointment._id)}><i style={{ cursor: 'pointer' }} className="far fa-trash-alt text-danger"></i></button> </TableCell>

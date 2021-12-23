@@ -59,19 +59,19 @@ const PatientInfo = ({ patient }) => {
                 <TableCell> {patient.patient_address} </TableCell>
 
                 {/* status */}
-                <TableCell> {patient.status} </TableCell>
+                {/* <TableCell> {patient.status} </TableCell> */}
 
                 {/* payment */}
                 <TableCell> {patient.payment ? <div className='success-text'>Paid</div> : <div className='text-alert'>Not Paid</div>} </TableCell>
 
                 {/* meetlink */}
                 <TableCell>
-                    <Link to={`/dashboard/meetlink/${patient._id}`} className='btn-secondary' >Send Link</Link>
+                    <Link to={`/dashboard/meetlink/${patient._id}`} className='tbl-btn-primary' >Send Link</Link>
                 </TableCell>
 
                 {/* prescription */}
                 <TableCell>
-                    <Link to={`/dashboard/prescription/${patient._id}`} className='btn-secondary' >Send Rx</Link>
+                    <Link to={`/dashboard/prescription/${patient._id}`} className='tbl-btn-primary' >Send Rx</Link>
                 </TableCell>
 
                 {/* <TableCell> {<Box sx={{ minWidth: 120 }}>

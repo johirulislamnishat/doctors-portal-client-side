@@ -17,12 +17,12 @@ const columns = [
     { id: 'phone', label: 'Phone Number', minWidth: 150, },
     { id: 'email', label: 'Email', minWidth: 150, },
     { id: 'location', label: 'Location', minWidth: 150, },
-    { id: 'status', label: 'Status', minWidth: 50, },
-    { id: 'payment', label: 'Payment', minWidth: 80, },
-    { id: 'meetlink', label: 'MeetLink', minWidth: 180, },
-    { id: 'prescription', label: 'Prescription', minWidth: 180, },
+    // { id: 'status', label: 'Status', minWidth: 50, },
+    { id: 'payment', label: 'Payment', minWidth: 120, },
+    { id: 'meetlink', label: 'MeetLink', minWidth: 160, },
+    { id: 'prescription', label: 'Prescription', minWidth: 140, },
     // { id: 'status', label: 'Status', },
-    { id: 'action', label: 'Action', }
+    { id: 'action', label: 'Action', minWidth: 40, }
 
 ];
 

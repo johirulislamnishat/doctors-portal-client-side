@@ -77,7 +77,7 @@ const Checkout = ({ payAppointment }) => {
             setSuccess('');
         } else {
             setError('');
-            setSuccess('Congratulations!!! Payment Successful');
+            setSuccess(<div className='success-text'>Congratulations!!! Payment Successful</div>);
             setProcessing(false);
             // console.log(paymentIntent)
             //save payment info to database
@@ -122,7 +122,7 @@ const Checkout = ({ payAppointment }) => {
                 />
                 {
                     processing ? (<CircularProgress />) : (
-                        <button className='btn btn-primary py-2 px-5 mt-5' type="submit" disabled={!stripe || success}>
+                        <button className='btn btn-secondary py-2 px-5 mt-5' type="submit" disabled={!stripe || success}>
                             Pay
                         </button>)
                 }
@@ -137,7 +137,7 @@ const Checkout = ({ payAppointment }) => {
             }
 
             <button className='btn ' style={{ marginTop: 20 }} >
-                <Link className='btn btn-primary py-2 px-4' to='/dashboard/cardInfo'>See Card Details</Link>
+                <Link className='btn btn-secondary py-2 px-4' to='/dashboard/cardInfo'>See Card Details</Link>
             </button>
         </div>
     );

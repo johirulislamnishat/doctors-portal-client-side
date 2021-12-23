@@ -14,7 +14,9 @@ const Review = () => {
                     alert('Success');
                     reset();
                 }
-            })
+            }).catch((error) => {
+                console.error(error);
+            });
     };
 
     return (

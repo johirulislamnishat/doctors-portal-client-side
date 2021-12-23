@@ -17,7 +17,7 @@ const Booking = ({ appointment, date }) => {
     return (
         <>
             <Grid item xs={4} sm={4} md={4}>
-                <div className="single-doctor">
+                <div className="single-doctor mt-5">
                     <img className="img-fluid doctor-image" src={img} alt="doctor" />
                     <div className="doctor-description">
                         <p className="doctor-category">{category}</p>
@@ -36,7 +36,7 @@ const Booking = ({ appointment, date }) => {
 
                     <CardActions sx={{ display: 'flex', justifyContent: 'center', }}>
 
-                        <input onClick={handleOpen} class="btn btn-primary my-2" type="submit" value="Book Appointment" />
+                        <input onClick={handleOpen} class="btn btn-secondary my-2" type="submit" value="Book Appointment" />
                     </CardActions>
                 </div>
             </Grid>

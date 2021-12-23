@@ -49,14 +49,84 @@ a:hover {
 	padding-right: 35px;
 	padding-left: 35px;
 }
+/* table button  */
+.tbl-btn-primary {
+	/* background-image: linear-gradient(75deg, #005b93, #0092db) !important; */
+	background-color: #0092db00;
+	border: 1px solid #00c689;
+	font-size: 15px;
+	font-weight: 600;
+	border-radius: 50px;
+	padding-top: 7px;
+	padding-bottom: 7px;
+	padding-right: 20px;
+	padding-left: 20px;
+	color: #00c689;
+}
+.tbl-btn-primary:hover {
+	/* background-image: linear-gradient(75deg, #005b93, #0092db) !important; */
+	background-color: #0092db;
+	font-size: 15px;
+	font-weight: 600;
+	border-radius: 50px;
+	padding-top: 7px;
+	padding-bottom: 7px;
+	padding-right: 20px;
+	padding-left: 20px;
+	color: white;
+}
+.tbl-btn-alert {
+	/* background-image: linear-gradient(75deg, #005b93, #0092db) !important; */
+	border: 1px solid crimson;
+	background-color: rgba(220, 20, 60, 0);
+	font-size: 15px;
+	font-weight: 600;
+	border-radius: 50px;
+	padding-top: 7px;
+	padding-bottom: 7px;
+	padding-right: 15px;
+	padding-left: 15px;
+	color: crimson;
+}
+.tbl-btn-alert:hover {
+	/* background-image: linear-gradient(75deg, #005b93, #0092db) !important; */
+	background-color: crimson;
+	font-size: 15px;
+	font-weight: 600;
+	border-radius: 50px;
+	padding-top: 7px;
+	padding-bottom: 7px;
+	padding-right: 15px;
+	padding-left: 15px;
+	color: white;
+}
 .text-primary {
 	color: #0092db !important;
 }
 
+.table-name{
+	color: #0dc276;
+	font-size: 18px;
+	font-weight: 600;
+	padding-top: 15px;
+	padding-bottom: 30px;
+}
+
+.success-text{
+	color: #0dc276;
+	font-size: 17px;
+	font-weight: 600;
+}
+
+.text-warning{
+	color: #fda006;
+	font-weight: 600;
+	font-size:17px ;
+}
 .text-alert{
 	color: crimson;
 	font-weight: 600;
-	font-size:14px ;
+	font-size: 17px ;
 }
 
 .btn-info {
@@ -76,7 +146,7 @@ a:hover {
 	border-color: transparent !important;
 }
 .bg-primary {
-	background-color: #1cc7c1 !important;
+	background-color: #0092db !important;
 }
 .bg-dark {
 	background-color: #3a4256 !important;
@@ -107,19 +177,6 @@ p {
 	font-size: 22px;
 }
 
-.table-name{
-	color: #0dc276;
-	font-size: 18px;
-	font-weight: 600;
-	padding-top: 15px;
-	padding-bottom: 30px;
-}
-
-.success-text{
-	color: #0dc276;
-	font-size: 17px;
-	font-weight: 600;
-}
 
 .nav-items{
 	color: #0dc276;

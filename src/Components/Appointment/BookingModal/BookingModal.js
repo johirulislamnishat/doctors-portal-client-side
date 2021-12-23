@@ -27,7 +27,12 @@ const BookingModal = ({ date, open, handleClose, appointment }) => {
             designation,
             date: date.toLocaleDateString(),
             email,
+            // status: 'Pending',
+            // meetingTime: 'Please Join At 00.00 PM',
             meetingLink: 'Please Wait For Link',
+            // complains: 'Writing ',
+            // history: 'Writing ',
+            // treatments: 'Writing ',
             prescriptions: 'Writing ',
 
         }

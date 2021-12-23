@@ -20,7 +20,7 @@ const AvailableAppointment = ({ date }) => {
     return (
         <Container>
             <Box sx={{ flexGrow: 1 }}>
-                <Typography sx={{ fontSize: 26, color: "#1CC7C1", mb: 3, mt: 10, textAlign: 'center' }} variant="h4" component="div">
+                <Typography sx={{ fontSize: 26, color: "#0092db", mb: 3, mt: 10, textAlign: 'center' }} variant="h4" component="div">
                     Available Appointments on {date.toDateString()}
                 </Typography>
 

@@ -13,6 +13,7 @@ import Payment from './UserArea/Payments/Payment';
 import CardInfo from './UserArea/Payments/CardInfo';
 import SendMeetLink from './AdminArea/SendMeetLink';
 import SendPrescription from './AdminArea/SendPrescription';
+import ManageContact from './AdminArea/ManageContact/ManageContact';
 
 
 const DashboardContent = () => {
@@ -27,8 +28,8 @@ const DashboardContent = () => {
                     <DashboardAdmin />
                 </Route>
 
-                <Route path={`${path}/appointments`}>
-                    <Appointment />
+                <Route path={`${path}/manage-contact`}>
+                    <ManageContact />
                 </Route>
 
                 <Route path={`${path}/manage-patients`}>

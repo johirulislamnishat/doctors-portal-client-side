@@ -66,7 +66,7 @@ const DoctorInfo = ({ doctor }) => {
                 {/* <TableCell> {doctor.time} </TableCell> */}
 
                 {/* update */}
-                <TableCell className="border-0" style={{ fontSize: 20 }} > <button className='bg-transparent border-0' onClick={() => handleOpen(doctor._id)}><i style={{ cursor: 'pointer' }} className="border-0 far fa-edit text-success"></i></button> </TableCell>
+                {/* <TableCell className="border-0" style={{ fontSize: 20 }} > <button className='bg-transparent border-0' onClick={() => handleOpen(doctor._id)}><i style={{ cursor: 'pointer' }} className="border-0 far fa-edit text-success"></i></button> </TableCell> */}
 
                 {/* delete */}
                 <TableCell style={{ fontSize: 20 }} > <button className='bg-transparent border-0' onClick={() => handleDeleteDoctor(doctor._id)}><i style={{ cursor: 'pointer' }} className="far fa-trash-alt text-danger"></i></button> </TableCell>

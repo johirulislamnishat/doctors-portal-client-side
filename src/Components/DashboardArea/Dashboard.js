@@ -148,44 +148,44 @@ function Dashboard() {
                         </Link>
                     </ListItem>
 
-                    <ListItem button>
-                        <Link className='nav-items' to={`${url}/appointments`} >
-                            <FontAwesomeIcon style={{ width: 17, marginRight: 5 }} icon={faCalendar} /> <span>Appointment</span>
-                        </Link>
-                    </ListItem>
 
+                    {/* manage patient */}
                     <ListItem button>
                         <Link className='nav-items' to={`${url}/manage-patients`}>
                             <FontAwesomeIcon style={{ width: 17, marginRight: 5 }} icon={faUsers} /> <span>Manage Patients</span>
                         </Link>
                     </ListItem>
 
+                    {/* add doctor */}
                     <ListItem button>
                         <Link className='nav-items' to={`${url}/add-doctors`}>
                             <FontAwesomeIcon style={{ width: 17, marginRight: 5 }} icon={faUserPlus} /> <span>Add Doctor</span>
                         </Link>
                     </ListItem>
 
+                    {/* Manage Doctors */}
                     <ListItem className='nav-items' button>
                         <Link className='nav-items' to={`${url}/manage-doctors`}>
                             <FontAwesomeIcon style={{ width: 17, marginRight: 5 }} icon={faArtstation} /> <span>Manage Doctors</span>
                         </Link>
                     </ListItem>
 
+                    {/* Add New Admin */}
                     <ListItem className='nav-items' button>
                         <Link className='nav-items' to={`${url}/add-new-admin`}>
                             <FontAwesomeIcon style={{ width: 17, marginRight: 5 }} icon={faUserPlus} /> <span>Add New Admin</span>
                         </Link>
                     </ListItem>
-                    {/* {dummyCategories.map((text, index) => (
-        <ListItem button key={text}>
-            <ListItemText primary={text} />
-        </ListItem>
-    ))} */}
+
+                    {/* manage contact */}
+                    <ListItem button>
+                        <Link className='nav-items' to={`${url}/manage-contact`} >
+                            <FontAwesomeIcon style={{ width: 17, marginRight: 5 }} icon={faCalendar} /> <span>Manage Contact </span>
+                        </Link>
+                    </ListItem>
+
                 </List>
                 )
-
-
 
                 <List style={{ fontSize: 16, fontWeight: 600, marginTop: 10 }}>
                     <ListItem button>

@@ -43,7 +43,7 @@ const MeetLinkModal = ({ open, handleClose, appointment }) => {
 
 
 
-                        <a target='_blank' href={appointment.meetingLink} class="btn btn-primary my-2" >Go</a>
+                        <a target='_blank' href={appointment.meetingLink} class="btn tbl-btn-primary my-2" >Go</a>
 
                     </form>
 
