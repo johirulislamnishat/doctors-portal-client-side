@@ -17,7 +17,7 @@ const SeeAppointments = ({ appointment }) => {
     const handleCancelAppointment = id => {
         const proceed = window.confirm('Are you sure you want to delete?');
         if (proceed) {
-            const url = `http://localhost:5000/cancelAppointments/${id}`;
+            const url = `https://homedocto.herokuapp.com/cancelAppointments/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

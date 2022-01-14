@@ -52,7 +52,7 @@ const MyAppointment = () => {
     // console.log(email)
 
     useEffect(() => {
-        const url = (`http://localhost:5000/appointment/${email}`)
+        const url = (`https://homedocto.herokuapp.com/appointment/${email}`)
         fetch(url)
             .then(res => res.json())
             // .then(data => console.log(data))

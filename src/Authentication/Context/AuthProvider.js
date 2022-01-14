@@ -11,7 +11,7 @@ const AuthProvider = ({ children }) => {
     // const email = localStorage.getItem('email');
 
     // useEffect(() => {
-    //     fetch(`http://localhost:5000/appointments/${email}`)
+    //     fetch(`https://homedocto.herokuapp.com/appointments/${email}`)
     //         .then(res => res.json())
     //         .then(data => console.log(data))
     //     // .then(data => setAppointments(data))

@@ -47,7 +47,7 @@ const ManagePatients = () => {
     const [patients, setPatients] = useState([]);
 
     useEffect(() => {
-        const url = (`http://localhost:5000/appointments/`)
+        const url = (`https://homedocto.herokuapp.com/appointments/`)
         fetch(url)
             .then(res => res.json())
             // .then(data => console.log(data))
@@ -57,7 +57,7 @@ const ManagePatients = () => {
     // const [users, setUsers] = useState([]);
 
     // useEffect(() => {
-    //     fetch('http://localhost:5000/users')
+    //     fetch('https://homedocto.herokuapp.com/users')
     //         .then(res => res.json())
     //         .then(data => setUsers(data))
     // }, [])

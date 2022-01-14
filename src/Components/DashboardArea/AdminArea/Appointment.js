@@ -32,7 +32,7 @@ const Appointment = () => {
     const [isReload, setIsReload] = useState(false);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/appointments`)
+        fetch(`https://homedocto.herokuapp.com/appointments`)
             .then(res => res.json())
             // .then(data => console.log(data))
             .then(data => setAppointments(data))
@@ -57,7 +57,7 @@ const Appointment = () => {
         // console.log(e.target.innerText)
         axios.patch(
 
-            `http://localhost:5000/update-status/${statusId}`,
+            `https://homedocto.herokuapp.com/update-status/${statusId}`,
             {
                 status: e.target.innerText,
             }
@@ -78,7 +78,7 @@ const Appointment = () => {
     const handleCancelAppointment = id => {
         const proceed = window.confirm('Are you sure you want to delete?');
         if (proceed) {
-            const url = `http://localhost:5000/cancelAppointments/${id}`;
+            const url = `https://homedocto.herokuapp.com/cancelAppointments/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

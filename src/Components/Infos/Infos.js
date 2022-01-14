@@ -6,7 +6,7 @@ const Infos = () => {
     return (
         <div className="infos">
             <div className="container">
-                <div class="row mt-0 mt-md-5">
+                <div className="row mt-0 mt-md-5">
 
                     {
                         infos.map(info => <InfoCard info={info} />)

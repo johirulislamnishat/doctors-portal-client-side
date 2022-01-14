@@ -11,7 +11,7 @@ const AddDoctor = () => {
     const { register, handleSubmit, reset } = useForm();
 
     const onSubmit = data => {
-        axios.post('http://localhost:5000/doctors', data)
+        axios.post('https://homedocto.herokuapp.com/doctors', data)
             .then(res => {
                 // console.log(res);
                 if (res.data.insertedId) {

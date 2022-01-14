@@ -13,7 +13,7 @@ const UserInfo = ({ user }) => {
     const handleDeleteUser = id => {
         const proceed = window.confirm('Are you sure you want to delete?');
         if (proceed) {
-            const url = `http://localhost:5000/deleteUser/${id}`;
+            const url = `https://homedocto.herokuapp.com/deleteUser/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

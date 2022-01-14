@@ -38,7 +38,7 @@ const ManageUsers = () => {
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
-        const url = (`http://localhost:5000/users/`)
+        const url = (`https://homedocto.herokuapp.com/users/`)
         fetch(url)
             .then(res => res.json())
             // .then(data => console.log(data))

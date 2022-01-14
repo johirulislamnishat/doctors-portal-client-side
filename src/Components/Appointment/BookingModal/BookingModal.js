@@ -38,7 +38,7 @@ const BookingModal = ({ date, open, handleClose, appointment }) => {
         }
 
         //send data to server
-        fetch('http://localhost:5000/appointments', {
+        fetch('https://homedocto.herokuapp.com/appointments', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -215,7 +215,7 @@ const BookingModal = ({ date, open, handleClose, appointment }) => {
                             label="Address"
                         />
 
-                        <input class="btn btn-primary my-2" type="submit" value="Submit" />
+                        <input className="btn btn-primary my-2" type="submit" value="Submit" />
 
                     </form>
 

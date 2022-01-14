@@ -23,7 +23,7 @@ const MyAppointmentData = ({ appointment }) => {
     const handleDeleteAppointment = id => {
         const proceed = window.confirm('Are you sure you want to delete?');
         if (proceed) {
-            const url = `http://localhost:5000/appointments/${id}`;
+            const url = `https://homedocto.herokuapp.com/appointments/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
@@ -58,14 +58,14 @@ const MyAppointmentData = ({ appointment }) => {
                 {/* meetlink */}
                 <TableCell>
                     {
-                        appointment.meetingLink === 'Please Wait For Link' ? <div className='text-warning'>Please Wait</div> : <input onClick={handleOpen} class="btn tbl-btn-primary my-2" type="submit" value="Get Link" />
+                        appointment.meetingLink === 'Please Wait For Link' ? <div className='text-warning'>Please Wait</div> : <input onClick={handleOpen} className="btn tbl-btn-primary my-2" type="submit" value="Get Link" />
                     }
                 </TableCell>
 
                 {/* prescription */}
                 <TableCell>
                     {
-                        appointment.prescriptions === 'Writing ' ? <div className='text-warning'>Please Wait</div> : <input onClick={handlePresOpen} class="btn tbl-btn-primary my-2" type="submit" value="View" />
+                        appointment.prescriptions === 'Writing ' ? <div className='text-warning'>Please Wait</div> : <input onClick={handlePresOpen} className="btn tbl-btn-primary my-2" type="submit" value="View" />
                     }
                 </TableCell>
 

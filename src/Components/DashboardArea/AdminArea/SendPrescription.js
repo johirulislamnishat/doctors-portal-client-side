@@ -10,7 +10,7 @@ const SendPrescription = () => {
     const { id } = useParams();
 
     useEffect(() => {
-        const url = `http://localhost:5000/prescription/${id}`
+        const url = `https://homedocto.herokuapp.com/prescription/${id}`
         fetch(url)
             .then(res => res.json())
             // .then(data => console.log(data))
@@ -26,7 +26,7 @@ const SendPrescription = () => {
 
     const handlePrescriptionSubmit = e => {
         e.preventDefault();
-        const url = `http://localhost:5000/prescription/${id}`
+        const url = `https://homedocto.herokuapp.com/prescription/${id}`
 
         fetch(url, {
             method: 'PUT',
@@ -48,11 +48,11 @@ const SendPrescription = () => {
 
     return (
         <div>
-            <div class="form-box">
+            <div className="form-box">
                 <h1>Write And Send Prescription</h1>
 
                 <form className='mt-5' onSubmit={handlePrescriptionSubmit}>
-                    <div class="form-group">
+                    <div className="form-group">
                         <label>Prescription</label>
                         <textarea
 
@@ -60,11 +60,11 @@ const SendPrescription = () => {
                             value={prescriptions || ''}
                             type="text" required
                             placeholder="Write Prescription"
-                            class="form-control" />
+                            className="form-control" />
                         {/* {errors.exampleRequired && <span>This field is required</span>} */}
                     </div>
 
-                    <input class="btn btn-primary" type="submit" value="Submit" />
+                    <input className="btn btn-primary" type="submit" value="Submit" />
                 </form>
             </div>
         </div>

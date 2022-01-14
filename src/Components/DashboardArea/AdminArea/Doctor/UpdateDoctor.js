@@ -27,7 +27,7 @@ const UpdateDoctor = ({ open, handleClose, doctor }) => {
         // }
 
         //send data to server
-        // fetch('http://localhost:5000/appointments', {
+        // fetch('https://homedocto.herokuapp.com/appointments', {
         //     method: 'POST',
         //     headers: {
         //         'content-type': 'application/json'
@@ -160,7 +160,7 @@ const UpdateDoctor = ({ open, handleClose, doctor }) => {
                             defaultValue={price}
                         />
 
-                        <input class="btn btn-primary my-2" type="submit" value="Confirm" />
+                        <input className="btn btn-primary my-2" type="submit" value="Confirm" />
 
                     </form>
 

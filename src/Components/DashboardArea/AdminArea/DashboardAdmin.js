@@ -10,7 +10,7 @@ const DashboardAdmin = () => {
     const [appointment, setAppointment] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/appointments')
+        fetch('https://homedocto.herokuapp.com/appointments')
             .then(res => res.json())
             .then(data => setAppointment(data.length))
     }, [])
@@ -19,7 +19,7 @@ const DashboardAdmin = () => {
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/users')
+        fetch('https://homedocto.herokuapp.com/users')
             .then(res => res.json())
             .then(data => setUsers(data.length))
     }, [])
@@ -28,7 +28,7 @@ const DashboardAdmin = () => {
     const [doctors, setDoctors] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/doctors')
+        fetch('https://homedocto.herokuapp.com/doctors')
             .then(res => res.json())
             .then(data => setDoctors(data.length))
     }, [])

@@ -10,7 +10,7 @@ const DashboardUser = () => {
     const email = localStorage.getItem('email');
 
     useEffect(() => {
-        fetch(`http://localhost:5000/appointment/${email}`)
+        fetch(`https://homedocto.herokuapp.com/appointment/${email}`)
             .then(res => res.json())
             .then(data => setYourAppointment(data.length))
     }, [email])
@@ -20,7 +20,7 @@ const DashboardUser = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/appointments')
+        fetch('https://homedocto.herokuapp.com/appointments')
             .then(res => res.json())
             .then(data => setAppointment(data.length))
     }, [])
@@ -29,7 +29,7 @@ const DashboardUser = () => {
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/users')
+        fetch('https://homedocto.herokuapp.com/users')
             .then(res => res.json())
             .then(data => setUsers(data.length))
     }, [])
@@ -38,7 +38,7 @@ const DashboardUser = () => {
     const [doctors, setDoctors] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/doctors')
+        fetch('https://homedocto.herokuapp.com/doctors')
             .then(res => res.json())
             .then(data => setDoctors(data.length))
     }, [])

@@ -18,7 +18,7 @@ const Checkout = ({ payAppointment }) => {
     const [processing, setProcessing] = useState(false);
 
     useEffect(() => {
-        fetch('http://localhost:5000/create-payment-intent', {
+        fetch('https://homedocto.herokuapp.com/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -89,7 +89,7 @@ const Checkout = ({ payAppointment }) => {
                 transactionId: paymentIntent.client_secret.slice('_secret')[0]
             }
 
-            const url = `http://localhost:5000/appointments/${_id}`;
+            const url = `https://homedocto.herokuapp.com/appointments/${_id}`;
             fetch(url, {
                 method: 'PUT',
                 headers: {

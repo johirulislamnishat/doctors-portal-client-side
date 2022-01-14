@@ -36,7 +36,7 @@ const Booking = ({ appointment, date }) => {
 
                     <CardActions sx={{ display: 'flex', justifyContent: 'center', }}>
 
-                        <input onClick={handleOpen} class="btn btn-secondary my-2" type="submit" value="Book Appointment" />
+                        <input onClick={handleOpen} className="btn btn-secondary my-2" type="submit" value="Book Appointment" />
                     </CardActions>
                 </div>
             </Grid>

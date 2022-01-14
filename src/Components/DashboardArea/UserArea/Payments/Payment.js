@@ -14,7 +14,7 @@ const Payment = () => {
     // console.log(appointmentId)
 
     useEffect(() => {
-        fetch(`http://localhost:5000/appointments/${appointmentId}`)
+        fetch(`https://homedocto.herokuapp.com/appointments/${appointmentId}`)
             .then(res => res.json())
             .then(data => setPayAppointment(data))
     }, [appointmentId])

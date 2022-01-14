@@ -20,7 +20,7 @@ const ContactForm = () => {
                 }
             );
 
-        axios.post('http://localhost:5000/contact', data)
+        axios.post('https://homedocto.herokuapp.com/contact', data)
 
             .then(res => {
                 if (res.data.insertedId) {

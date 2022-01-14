@@ -14,7 +14,7 @@ const ManageContactData = ({ contact }) => {
     const handleDeleteContact = id => {
         const proceed = window.confirm('Are you sure you want to delete?');
         if (proceed) {
-            const url = `http://localhost:5000/deleteContacts/${id}`;
+            const url = `https://homedocto.herokuapp.com/deleteContacts/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

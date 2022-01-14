@@ -6,8 +6,8 @@ const Testimonial = (props) => {
 	return (
 		<div className="card-deck mt-4 mb-5">
 			<div className="card shadow-sm">
-				<div class="card-body">
-					<p class="card-text text-center">{quote}</p>
+				<div className="card-body">
+					<p className="card-text text-center">{quote}</p>
 				</div>
 				<div className="card-footer d-flex  align-items-center">
 					<img className="mx-3" src={img} alt="patient" width="70" height="70" style={{ borderRadius: '50%' }} />
